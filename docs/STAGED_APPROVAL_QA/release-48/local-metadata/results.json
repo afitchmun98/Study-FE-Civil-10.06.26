@@ -1,0 +1,330 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Actual Analyze button makes one primary request and no support request",
+      "passed": true
+    },
+    {
+      "name": "Single metadata output allowance is 512 tokens",
+      "passed": true
+    },
+    {
+      "name": "Metadata uses the verified reasoning_effort=none control",
+      "passed": true
+    },
+    {
+      "name": "Primary request asks the server for structured JSON",
+      "passed": true
+    },
+    {
+      "name": "Metadata prompt excludes solution, hint, equations, answer key and baseline audit",
+      "passed": true
+    },
+    {
+      "name": "Analyze stages a preview without changing the saved Question Bank",
+      "passed": true
+    },
+    {
+      "name": "Apply persists metadata through the existing writer and preserves content/key",
+      "passed": true
+    },
+    {
+      "name": "Diagnostics capture measured token usage and semantic validation",
+      "passed": true
+    },
+    {
+      "name": "Diagnostics identify operation, model, request number, retry, and duration",
+      "passed": true
+    },
+    {
+      "name": "Diagnostics omit prompt bodies and private reasoning",
+      "passed": true
+    },
+    {
+      "name": "fenced: deterministic parsing avoids a second model call",
+      "passed": true
+    },
+    {
+      "name": "trailing-comma: deterministic parsing avoids a second model call",
+      "passed": true
+    },
+    {
+      "name": "prose: deterministic parsing avoids a second model call",
+      "passed": true
+    },
+    {
+      "name": "Invalid JSON invokes the support model once as a fallback",
+      "passed": true
+    },
+    {
+      "name": "Fallback is bounded, uses the metadata budget/control, and reports its actual model",
+      "passed": true
+    },
+    {
+      "name": "Fallback diagnostics count the second request as retry one",
+      "passed": true
+    },
+    {
+      "name": "Without support configuration, at most one primary repair is allowed",
+      "passed": true
+    },
+    {
+      "name": "malformed-always: inference stops after one fallback",
+      "passed": true
+    },
+    {
+      "name": "malformed-always: fallback never forwards reasoning text",
+      "passed": true
+    },
+    {
+      "name": "reasoning-only: inference stops after one fallback",
+      "passed": true
+    },
+    {
+      "name": "reasoning-only: fallback never forwards reasoning text",
+      "passed": true
+    },
+    {
+      "name": "A noncanonical subtopic receives one schema-validation fallback",
+      "passed": true
+    },
+    {
+      "name": "wrong-id: unsafe identity or operational errors do not trigger output repair",
+      "passed": true
+    },
+    {
+      "name": "wrong-fingerprint: unsafe identity or operational errors do not trigger output repair",
+      "passed": true
+    },
+    {
+      "name": "unauthorized: unsafe identity or operational errors do not trigger output repair",
+      "passed": true
+    },
+    {
+      "name": "server-error: unsafe identity or operational errors do not trigger output repair",
+      "passed": true
+    },
+    {
+      "name": "thinking-unsupported: one explicit HTTP compatibility retry is allowed",
+      "passed": true
+    },
+    {
+      "name": "thinking-unsupported: compatibility cache prevents repeated probing",
+      "passed": true
+    },
+    {
+      "name": "thinking-unsupported: no support inference is used for parameter negotiation",
+      "passed": true
+    },
+    {
+      "name": "schema-unsupported: one explicit HTTP compatibility retry is allowed",
+      "passed": true
+    },
+    {
+      "name": "schema-unsupported: compatibility cache prevents repeated probing",
+      "passed": true
+    },
+    {
+      "name": "schema-unsupported: no support inference is used for parameter negotiation",
+      "passed": true
+    },
+    {
+      "name": "Broad legacy classification uses the efficient single-call path",
+      "passed": true
+    },
+    {
+      "name": "Broad classification no longer sends solution/key context",
+      "passed": true
+    },
+    {
+      "name": "General Local output budget and server thinking defaults stay unchanged",
+      "passed": true
+    },
+    {
+      "name": "Connection test avoids the old hard-coded 40-token reasoning trap",
+      "passed": true
+    },
+    {
+      "name": "Gemini routing and output budgets remain independent",
+      "passed": true
+    },
+    {
+      "name": "OpenAI Responses routing and output budgets remain independent",
+      "passed": true
+    },
+    {
+      "name": "normal: 20 questions use two requests with ten-row output budgets",
+      "passed": true
+    },
+    {
+      "name": "normal: stable-ID matching stages every question and completes before review",
+      "passed": true
+    },
+    {
+      "name": "normal: batch generation does not save proposals before acceptance",
+      "passed": true
+    },
+    {
+      "name": "normal: each batch suppresses thinking and shares one taxonomy",
+      "passed": true
+    },
+    {
+      "name": "reverse: 20 questions use two requests with ten-row output budgets",
+      "passed": true
+    },
+    {
+      "name": "reverse: stable-ID matching stages every question and completes before review",
+      "passed": true
+    },
+    {
+      "name": "reverse: batch generation does not save proposals before acceptance",
+      "passed": true
+    },
+    {
+      "name": "reverse: each batch suppresses thinking and shares one taxonomy",
+      "passed": true
+    },
+    {
+      "name": "Batched proposal uses the original explicit acceptance writer",
+      "passed": true
+    },
+    {
+      "name": "Batched acceptance can be rejected and restored",
+      "passed": true
+    },
+    {
+      "name": "semantic-once: only the one failed row goes to support",
+      "passed": true
+    },
+    {
+      "name": "semantic-once: good rows are retained and repaired row is staged",
+      "passed": true
+    },
+    {
+      "name": "missing-once: only the one failed row goes to support",
+      "passed": true
+    },
+    {
+      "name": "missing-once: good rows are retained and repaired row is staged",
+      "passed": true
+    },
+    {
+      "name": "duplicate: bulk identity corruption does not trigger guessed matching or extra inference",
+      "passed": true
+    },
+    {
+      "name": "duplicate: mismatched batch is rejected without saved changes",
+      "passed": true
+    },
+    {
+      "name": "wrong-fingerprint: bulk identity corruption does not trigger guessed matching or extra inference",
+      "passed": true
+    },
+    {
+      "name": "wrong-fingerprint: mismatched batch is rejected without saved changes",
+      "passed": true
+    },
+    {
+      "name": "Persistent malformed output remains bounded per ten-row batch/single tail",
+      "passed": true
+    },
+    {
+      "name": "Failed metadata requests do not stop the remaining target list for review",
+      "passed": true
+    },
+    {
+      "name": "Stale single-question response is rejected without another inference",
+      "passed": true
+    },
+    {
+      "name": "Stop during a ten-row request retains unfinished checkpoints",
+      "passed": true
+    },
+    {
+      "name": "Stop during the request prevents fallback and additional batches",
+      "passed": true
+    },
+    {
+      "name": "Resume finishes the stopped batch from preserved checkpoints",
+      "passed": true
+    },
+    {
+      "name": "Skip aborts the current provider batch but only skips the displayed question",
+      "passed": true
+    },
+    {
+      "name": "Other rows from a skipped request continue in two safe requests",
+      "passed": true
+    },
+    {
+      "name": "Support access failure preserves nine validated rows and only the invalid row remains unfinished",
+      "passed": true
+    },
+    {
+      "name": "Support access failure does not repeat the successful primary batch",
+      "passed": true
+    },
+    {
+      "name": "Resume after a partial fallback failure only requests the one unfinished row",
+      "passed": true
+    },
+    {
+      "name": "Manual Pause prevents sending the next ten-question request",
+      "passed": true
+    },
+    {
+      "name": "Resume finishes the remaining metadata batch without a review checkpoint",
+      "passed": true
+    },
+    {
+      "name": "Unrequested Topic/Subtopic groups do not send the taxonomy",
+      "passed": true
+    },
+    {
+      "name": "Ollama Local routing retains its native think=false and per-task output budget",
+      "passed": true
+    },
+    {
+      "name": "Unusually large records reduce batch grouping to two, without inflating budgets",
+      "passed": true
+    },
+    {
+      "name": "Large question context is grouped conservatively rather than truncated",
+      "passed": true
+    },
+    {
+      "name": "Configured size 1 sends the expected number of real metadata requests and aggregate allowance",
+      "passed": true
+    },
+    {
+      "name": "Configured size 1 retains every stable-ID proposal",
+      "passed": true
+    },
+    {
+      "name": "Configured size 3 sends the expected number of real metadata requests and aggregate allowance",
+      "passed": true
+    },
+    {
+      "name": "Configured size 3 retains every stable-ID proposal",
+      "passed": true
+    },
+    {
+      "name": "Configured size 20 sends the expected number of real metadata requests and aggregate allowance",
+      "passed": true
+    },
+    {
+      "name": "Configured size 20 retains every stable-ID proposal",
+      "passed": true
+    },
+    {
+      "name": "Pipeline diagnostics retain aggregate timing and call counts",
+      "passed": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

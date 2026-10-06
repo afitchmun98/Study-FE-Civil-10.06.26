@@ -1,0 +1,19 @@
+# Manual Batch Tools reliability — EXP3.0.2.4.3.23
+
+## Scope and behavior
+
+- Manual Copy/Paste schema 2.0 prompts now provide a response scaffold with the actual ID, revision, fingerprint, and required outputs for every question in the copied round. Conditional outputs are omitted for questions that do not need them. Answer Choices presentation and OCR examples copy the visible choices; choice reassessment and Worked Solution examples no longer suggest that choice A is correct. Question and Solution Diagram examples use the staged SVG shape. Validation instructions clarify that the individual prompt governs the nested validation object while the batch envelope governs the final response.
+- The generic importer accepts one complete JSON object in a plain or fenced response, including a single block surrounded by short prose. It accepts a question-ID-keyed results object and direct named operation outputs. Missing optional operation and option echoes are taken from the frozen batch; any *present but conflicting* echo is rejected. The batch fingerprint and every returned question revision and package fingerprint remain checked. Duplicate results invalidate only that question, and unknown or malformed results are ignored with a visible warning. Missing results remain retryable.
+- The dedicated Question Text prompt now has real per-question scaffold identities. Its importer accepts the same complete fenced JSON transport and a question-ID-keyed results object, while retaining frozen batch, mode, option, and per-question identity checks.
+- A selection of 20 remains in one session. Worked Solutions, Solution Polish, and Validation copy at most 5 questions per round; Answer Choices and AI Data copy at most 10. Question Text copies at most 10 safe or 5 source/OCR items per round. The existing Question and Solution Diagram buttons continue to use their separate per-question queue. The size entered in setup is an upper bound, and the setup text explains these round sizes.
+- Metadata, Question Text, and Answer Choices still stage changed content for explicit review, including when the task ends early. Worked Solutions, diagrams, AI Data, and validation retain their existing direct-save or diagnostic behavior. No database schema, provider route, or FE correctness guard was relaxed.
+
+## QA/QC
+
+- The browser regression `scripts/manual-metadata-regression.mjs` passed **50 assertions**. It covers a 20-question metadata batch, partial and duplicate responses, early review, protected metadata acceptance, 20 selected Answer Choices split into two rounds, fenced JSON with surrounding prose, valid-sibling import, duplicate and missing retries, frozen identity/operation/option rejection, Answer Choices early review, and schema checks for Question Text, solutions, polish, diagrams, AI Data, and validation.
+- `scripts/verify.mjs` checks the complete app script syntax, release identity, and SHA-256. The final release check passed after recording this build's exact hash.
+- `scripts/build.mjs` produced `dist/index.html` with the same SHA-256 as the source `index.html`; the generated `dist/` folder was then removed from the lean handoff.
+- The broader `scripts/ui-regression.mjs` reaches assertion 58 and stops at “six secondary controls live in More filters at desktop width.” The unchanged EXP3.0.2.4.3.22 starting build stops at the same assertion. The preceding sidebar and dialog checks pass.
+- The broader `scripts/study-workflows-qa.mjs` stops at “removing search clears only the search chip.” The unchanged starting build stops at the same assertion. Neither failure was introduced by the batch changes.
+
+The browser tests use synthetic questions and response payloads. No live ChatGPT or Gemini output was used to claim a measured success rate. A real 20-question session remains the next useful acceptance check after import into the user's app environment.

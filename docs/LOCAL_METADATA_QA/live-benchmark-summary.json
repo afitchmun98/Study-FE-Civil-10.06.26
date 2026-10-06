@@ -1,0 +1,135 @@
+{
+  "model": "google/gemma-4-12b-qat",
+  "endpoint": "http://192.168.1.72:1234/v1/chat/completions",
+  "date": "2026-10-04",
+  "measuredUsing": "Isolated app browser with disposable questions; actual controller/validators; POST requests forwarded to the specified LM Studio endpoint. No real Question Bank was edited.",
+  "samples": {
+    "baseline": {
+      "UISeconds": 72.495,
+      "modelSeconds": [
+        72.131
+      ],
+      "calls": 1,
+      "outputBudgets": [
+        4096
+      ],
+      "usage": [
+        {
+          "prompt_tokens": 1980,
+          "completion_tokens": 3782,
+          "total_tokens": 5762,
+          "completion_tokens_details": {
+            "reasoning_tokens": 3556
+          }
+        }
+      ],
+      "successful": true,
+      "statuses": []
+    },
+    "optimized-single": {
+      "UISeconds": 5.843,
+      "modelSeconds": [
+        5.499
+      ],
+      "calls": 1,
+      "outputBudgets": [
+        512
+      ],
+      "usage": [
+        {
+          "prompt_tokens": 852,
+          "completion_tokens": 218,
+          "total_tokens": 1070,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      ],
+      "successful": true,
+      "statuses": []
+    },
+    "optimized-batch": {
+      "UISeconds": null,
+      "modelSeconds": [
+        33.641
+      ],
+      "calls": 1,
+      "outputBudgets": [
+        5120
+      ],
+      "usage": [
+        {
+          "prompt_tokens": 1681,
+          "completion_tokens": 1732,
+          "total_tokens": 3413,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      ],
+      "successful": true,
+      "statuses": [
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending",
+        "pending"
+      ]
+    },
+    "optimized-final": {
+      "sourceSHA256": "c0d2a1bffd4a9858bf5ab490fbe7ebc7ec3426b7c931a91dbc8c116a7920e84f",
+      "UISeconds": 5.823,
+      "modelSeconds": [
+        5.489
+      ],
+      "calls": 1,
+      "outputBudgets": [
+        512
+      ],
+      "usage": [
+        {
+          "prompt_tokens": 852,
+          "completion_tokens": 218,
+          "total_tokens": 1070,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      ],
+      "successful": true
+    }
+  },
+  "loadedModel": {
+    "context_length": 141056,
+    "parallel": 1,
+    "flash_attention": true,
+    "reasoningAllowed": [
+      "off",
+      "on"
+    ],
+    "reasoningDefault": "on"
+  },
+  "controlProbes": {
+    "enableThinking_false": {
+      "seconds": 3.407,
+      "reasoningTokens": 99,
+      "completionTokens": 114
+    },
+    "reasoning_effort_none": {
+      "seconds": 0.558,
+      "reasoningTokens": 0,
+      "completionTokens": 11
+    },
+    "general_request_after_metadata": {
+      "seconds": 2.880436,
+      "reasoningTokens": 99,
+      "completionTokens": 114,
+      "control": "No per-request reasoning parameter; server thinking default remained on."
+    }
+  }
+}

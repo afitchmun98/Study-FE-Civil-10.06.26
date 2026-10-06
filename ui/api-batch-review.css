@@ -1,0 +1,158 @@
+.api-batch-panel {display:grid;gap:16px;padding:18px;border:1px solid var(--line-strong,var(--line));border-radius:7px;background:var(--card);min-width:0;}
+.api-batch-panel h3,.api-batch-panel h4,.api-batch-panel p {margin:0;}
+.api-batch-panel h3 {font-size:21px;}.api-batch-panel h4 {font-size:17px;}
+.api-batch-panel .field {display:grid;gap:7px;max-width:330px;}
+.api-batch-panel > summary {font-weight:600;font-size:17px;cursor:pointer;}
+.api-batch-panel details > summary {cursor:pointer;}
+.api-batch-actions {display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0;}
+.api-batch-actions .btn {white-space:normal;max-width:100%;min-height:42px;}
+.api-batch-review-navigation {display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px;border:1px solid var(--line);border-radius:7px;background:var(--card);}
+.api-batch-review-navigation > .api-batch-actions {margin-left:auto;}
+.api-batch-item-header {display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.api-batch-item-header h4 {flex:1;overflow-wrap:anywhere;}
+.api-batch-review-shell .manual-whole-review {font-size:16px;display:grid;gap:18px;}
+.api-batch-review-shell .manual-whole-review-table {table-layout:fixed;width:100%;}
+.api-batch-review-shell .manual-whole-review-table th,.api-batch-review-shell .manual-whole-review-table td {overflow-wrap:anywhere;}
+.api-batch-review-shell .manual-whole-review-value {overflow-wrap:anywhere;min-width:0;}
+.api-batch-audit {max-height:320px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.5;margin:12px 0 0;}
+.api-batch-retries {display:grid;max-height:380px;overflow:auto;}
+.api-batch-retries > label {display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:start;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);}
+.api-batch-retries > label > span {min-width:0;overflow-wrap:anywhere;}
+.api-batch-retries small {display:block;color:var(--muted);margin-top:5px;font-size:14px;line-height:1.5;}
+.api-batch-modal .modal-footer {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.api-batch-modal .batch-operation-groups {align-items:start;}
+.api-batch-modal .batch-effective-route,.api-batch-modal #batch-effective-routes {overflow-wrap:anywhere;min-width:0;}
+.api-batch-review-shell [data-api-current],.api-batch-review-shell [data-api-detail] {overflow-wrap:anywhere;}
+@media(max-width:650px){
+ .api-batch-panel {padding:14px;gap:14px;}
+ .api-batch-review-navigation {padding:12px;}
+ .api-batch-review-navigation > .api-batch-actions {margin-left:0;}
+ .api-batch-retries > label {grid-template-columns:20px minmax(0,1fr);}
+ .api-batch-retries .pill {grid-column:2;justify-self:start;}
+ .api-batch-modal .modal-footer > .api-batch-actions {width:100%;}
+ .api-batch-review-shell .manual-whole-review-comparison {grid-template-columns:minmax(0,1fr);}
+ .api-batch-review-shell .manual-whole-review-table th,.api-batch-review-shell .manual-whole-review-table td {padding:8px 6px;font-size:14px;}
+}
+
+.api-batch-validation {display:grid;gap:10px;margin:14px 0;}
+.api-batch-validation > div {display:grid;grid-template-columns:minmax(0,140px) minmax(0,1fr);gap:10px;}
+.api-batch-validation dt {color:var(--muted);font-size:14px;}
+.api-batch-validation dd {margin:0;overflow-wrap:anywhere;}
+.api-batch-validation dd p {margin:0;}
+@media(max-width:650px){.api-batch-validation > div {grid-template-columns:minmax(0,1fr);gap:4px;}}
+
+/* Compact API workspace; manual batch spacing remains independent. */
+.api-batch-header-actions {display:flex;align-items:center;justify-content:end;gap:8px;flex-wrap:wrap;max-width:100%;}
+.api-batch-modal .modal-header {padding:12px 18px;gap:12px;}
+.api-batch-modal .modal-header h2 {font-size:22px;}
+.api-batch-modal .modal-body {padding:0 18px 16px;}
+.api-batch-modal .modal-footer {padding:10px 18px;}
+.api-batch-modal .batch-workspace-shell {gap:12px;}
+.api-batch-modal .ai-batch-tools-tabs {margin:0 -18px;padding:0 18px;}
+.api-batch-modal .ai-batch-tools-tabs button {padding:8px 14px;min-height:42px;}
+.api-batch-modal .batch-workspace-stages button {padding:8px 12px;min-height:42px;}
+.api-batch-modal .ai-batch-tools-context {padding:8px 12px;}
+.api-batch-modal .batch-workspace-grid {grid-template-columns:minmax(0,1fr) 260px;gap:14px;}
+.api-batch-modal .batch-workspace-main,.api-batch-modal .compact-batch-api,.api-batch-modal .manual-whole-review {gap:12px;}
+.api-batch-modal .api-batch-panel {padding:14px;gap:10px;}
+.api-batch-modal .batch-workspace-aside > section {padding:14px;gap:8px;}
+.api-batch-modal .batch-workspace-counts > div {padding:6px 0;}
+.api-batch-modal .batch-workspace-guide {gap:8px;}
+.api-batch-modal .batch-operation-groups {gap:12px;}
+.api-batch-modal .batch-workspace-operation-column {gap:12px;}
+.api-batch-modal .batch-operation-group {padding:12px;}
+.api-batch-modal .batch-operation-group h3 {margin-bottom:8px;}
+.api-batch-modal .batch-operation-group .check-row + .check-row {margin-top:8px;}
+.api-batch-modal .api-batch-intro,.api-batch-activity-layout {display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:14px;align-items:start;}
+.api-batch-intro h3 {margin-bottom:6px;}
+.api-batch-pacing,.api-batch-live-status {display:grid;gap:6px;min-width:0;}
+.api-batch-modal .api-batch-pacing .field {max-width:none;}
+.api-batch-modal [data-api-current]:empty,.api-batch-modal [data-api-detail]:empty {display:none;}
+.api-batch-modal .api-batch-recovery {grid-template-columns:minmax(0,1fr) auto;align-items:start;}
+.api-batch-recovery h4 {margin-bottom:4px;}
+.api-batch-recovery > details {grid-column:1/-1;}
+.api-batch-help summary,.api-batch-recovery summary {cursor:pointer;font-size:14px;color:var(--muted);}
+.api-batch-help p,.api-batch-recovery details p {margin-top:6px;}
+.api-batch-modal .api-batch-review-navigation {padding:12px;gap:10px;align-items:end;}
+.api-batch-review-navigation .api-batch-question-jump {flex:1 1 230px;max-width:none;}
+.api-batch-modal .api-batch-review-navigation > .api-batch-bulk-actions {flex-basis:100%;margin:0;padding-top:10px;border-top:1px solid var(--line);}
+.api-batch-modal .manual-whole-review-pane {padding:12px;}
+.api-batch-modal .manual-whole-review-context {padding-bottom:10px;}
+.api-batch-modal .api-batch-retries > label {padding:10px 0;gap:10px;}
+@media(max-width:1100px){
+ .api-batch-modal .batch-workspace-grid {grid-template-columns:minmax(0,1fr);}
+ .api-batch-modal .batch-workspace-aside {grid-template-columns:minmax(0,1fr);}
+}
+@media(min-width:651px) and (max-width:1100px){
+ .api-batch-modal .batch-workspace-overview:has([data-api-reviewed]) {grid-template-columns:200px minmax(0,1fr);}
+ .api-batch-modal .batch-workspace-overview > .batch-workspace-counts {grid-column:2;grid-row:1/5;align-self:start;}
+ .api-batch-modal .batch-workspace-overview > :not(.batch-workspace-counts) {grid-column:1;}
+ .api-batch-modal .batch-workspace-guide {grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;}
+}
+@media(max-width:650px){
+ .api-batch-modal .api-batch-intro,.api-batch-activity-layout,.api-batch-modal .api-batch-recovery {grid-template-columns:minmax(0,1fr);}
+ .api-batch-pacing {max-width:none;}
+ .api-batch-modal .api-batch-review-navigation > .api-batch-question-jump {flex-basis:100%;}
+ .api-batch-modal .api-batch-review-navigation > .batch-workspace-navigation-pair {order:1;}
+ .api-batch-modal .api-batch-review-navigation > .api-batch-bulk-actions {order:2;}
+}
+@media(max-width:560px){
+ .api-batch-modal .modal-header,.api-batch-modal .modal-footer {padding:10px 12px;}
+ .api-batch-modal .modal-header h2 {flex:1 1 100%;}
+ .api-batch-modal .api-batch-header-actions {justify-content:start;}
+ .api-batch-modal .modal-body {padding:0 12px 12px;}
+ .api-batch-modal .ai-batch-tools-tabs {margin:0 -12px;padding:0 12px;}
+ .api-batch-modal .batch-workspace-stages button {padding:8px 5px;font-size:14px;}
+}
+
+/* Setup uses category rows instead of two uneven stacks of cards. */
+.api-batch-modal .api-batch-setup-grid {grid-template-columns:minmax(0,1fr);}
+.api-batch-setup-grid > .batch-workspace-aside {display:none;}
+.api-batch-setup-grid .batch-operation-groups {display:block;border:1px solid var(--line-strong,var(--line));border-radius:7px;overflow:hidden;margin-top:4px!important;}
+.api-batch-setup-grid .api-batch-operation-rows {display:grid;gap:0;}
+.api-batch-setup-grid .batch-operation-group {display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:14px;border:0;border-radius:0;background:var(--card);}
+.api-batch-setup-grid .batch-operation-group + .batch-operation-group {border-top:1px solid var(--line);}
+.api-batch-setup-grid .api-batch-operation-heading h3 {margin:0;font-size:17px;line-height:1.4;}
+.api-batch-setup-grid .api-batch-operation-choices {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px;align-items:start;}
+.api-batch-setup-grid .api-batch-operation-choice {min-height:42px;align-items:start;margin:0;line-height:1.5;}
+.api-batch-setup-grid .batch-operation-group .check-row + .check-row {margin-top:0;}
+.api-batch-setup-grid .api-batch-operation-note,.api-batch-setup-grid .api-batch-operation-settings {grid-column:1/-1;}
+.api-batch-setup-grid .api-batch-single-operation .api-batch-operation-choice {grid-column:1/-1;}
+.api-batch-setup-grid .api-batch-operation-note {margin:0!important;}
+.api-batch-setup-grid #batch-selective-metadata-controls > div:has([data-selective-metadata-batch-group]) {grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 16px!important;}
+.api-batch-setup-grid .solution-diagram-context-mode {display:grid;grid-template-columns:170px 220px minmax(0,1fr);align-items:center;gap:12px;max-width:none;}
+.api-batch-setup-grid .batch-operation-group:not(:has(#batch-solution-diagrams:checked)) .solution-diagram-context-mode {display:none;}
+.api-batch-setup-grid .api-batch-setup-guide {margin-top:10px;}
+.api-batch-setup-guide summary {cursor:pointer;font-size:14px;color:var(--muted);}
+.api-batch-setup-guide .batch-workspace-guide {margin-top:8px;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 28px;}
+@media(min-width:1250px){
+ .api-batch-setup-grid [data-api-operation-category="solutions"] .api-batch-operation-choices {grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media(max-width:1000px){
+ .api-batch-setup-grid .solution-diagram-context-mode {grid-template-columns:160px minmax(0,1fr);}
+ .api-batch-setup-grid .solution-diagram-context-mode > .caption {grid-column:2;}
+ .api-batch-setup-grid #batch-selective-metadata-controls > div:has([data-selective-metadata-batch-group]) {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:750px){
+ .api-batch-setup-grid .batch-operation-group {grid-template-columns:minmax(0,1fr);gap:8px;padding:12px;}
+}
+@media(max-width:650px){
+ .api-batch-setup-grid .api-batch-operation-choices,.api-batch-setup-grid .solution-diagram-context-mode {grid-template-columns:minmax(0,1fr);}
+ .api-batch-setup-grid .solution-diagram-context-mode > .caption {grid-column:1;}
+ .api-batch-setup-grid #batch-selective-metadata-controls > div:has([data-selective-metadata-batch-group]),.api-batch-setup-guide .batch-workspace-guide {grid-template-columns:minmax(0,1fr);}
+}
+
+/* Shared manual/API approval controls: one bounded group, or all in stages. */
+.batch-approval-controls {display:grid;gap:8px;padding:12px;border:1px solid var(--line);border-radius:7px;background:var(--card);min-width:0;}
+.batch-approval-row {display:flex;gap:12px;align-items:end;flex-wrap:wrap;min-width:0;}
+.batch-approval-row .field {display:grid;gap:5px;width:155px;max-width:100%;flex:0 1 155px;}
+.batch-approval-row .caption {flex:1 1 180px;align-self:center;}
+.batch-approval-controls p {margin:0;}
+.batch-approval-controls [data-batch-approval-progress] {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;}
+.batch-approval-controls [data-batch-approval-progress][hidden] {display:none;}
+.batch-approval-controls progress {grid-column:1;width:100%;}
+.batch-approval-controls [data-batch-approval-status] {grid-column:1;overflow-wrap:anywhere;}
+.batch-approval-controls [data-batch-approval-progress] .btn {grid-column:2;grid-row:1 / span 2;}
+.api-batch-review-navigation > .batch-approval-controls {flex:1 1 100%;}
+.batch-approval-controls .btn {min-height:42px;white-space:normal;}
+@media(max-width:500px){.batch-approval-row .caption {flex-basis:100%;}.batch-approval-controls [data-batch-approval-progress] {grid-template-columns:minmax(0,1fr);}.batch-approval-controls [data-batch-approval-progress] .btn {grid-column:1;grid-row:auto;justify-self:start;}}

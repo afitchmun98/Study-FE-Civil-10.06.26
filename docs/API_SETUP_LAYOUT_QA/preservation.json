@@ -1,0 +1,9 @@
+{
+  "previousAppPreserved": true,
+  "previousZipPreserved": true,
+  "manualModulesUnchanged": {
+    "ui/batch-workspace.js": true,
+    "ui/batch-workspace.css": true
+  },
+  "protectedAppBaseline": "f7d917cdf040eae79293c0cfdc6ce4c402ab8a5e9db19433bbf6ef45bb6d612d"
+}

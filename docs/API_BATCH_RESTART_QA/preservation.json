@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "previousRelease": [
+    {
+      "file": "FE_Civil_Practice_Lab_EXP3.0.2.4.3.43_STANDALONE.html",
+      "expectedSHA256": "85da2e4365ee11936c34dc3ffe517fec1329807b37418ca384f0d006791a08eb",
+      "actualSHA256": "85da2e4365ee11936c34dc3ffe517fec1329807b37418ca384f0d006791a08eb"
+    },
+    {
+      "file": "FE_Civil_EXP3.0.2.4.3.43_GitHub_AI_Studio_Ready.zip",
+      "expectedSHA256": "1a78340534a0eb8263a1659b3115caab1d9614fb36e67456dfc49a14edfcd877",
+      "actualSHA256": "1a78340534a0eb8263a1659b3115caab1d9614fb36e67456dfc49a14edfcd877"
+    }
+  ],
+  "manualWorkspaceModulesUnchanged": true
+}

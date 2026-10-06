@@ -1,0 +1,10 @@
+{
+  "previousRelease": "4.1.5.51.54 / EXP3.0.2.4.3.41",
+  "currentRelease": "4.1.5.51.55 / EXP3.0.2.4.3.42",
+  "previousIndexSHA256": "d7853b1b4b9d0e02a763a0ab6811ec45f52a8b29da694ad81f2a522771e09c4b",
+  "currentIndexSHA256": "d2305a2294881e006f17c2264ecb831a874bf8e2f6b08dcc154bcb4531bc76ba",
+  "previousUnchanged": true,
+  "manualPresentationUnchanged": true,
+  "protectedCoreCheck": "scripts/presentation-integrity.mjs \u2014 prompt/schema/routing/database/individual API behavior preserved except three explicit default-off detached-record adapters",
+  "standaloneSHA256": "d2305a2294881e006f17c2264ecb831a874bf8e2f6b08dcc154bcb4531bc76ba"
+}

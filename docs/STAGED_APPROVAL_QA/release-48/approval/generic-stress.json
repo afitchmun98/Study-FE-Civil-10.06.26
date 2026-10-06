@@ -1,0 +1,15 @@
+{
+  "questions": 2000,
+  "seconds": 2.913,
+  "stats": {
+    "decisions": 2000,
+    "checkpoints": 41,
+    "renders": 1
+  },
+  "result": {
+    "resolved": 2000,
+    "errors": [],
+    "stopped": false,
+    "attempted": 2000
+  }
+}

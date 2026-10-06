@@ -1,0 +1,567 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "message": "Setup exposes the existing one-second delay",
+      "passed": true
+    },
+    {
+      "message": "All 12 existing API operations remain available",
+      "passed": true
+    },
+    {
+      "message": "No operation starts preselected",
+      "passed": true
+    },
+    {
+      "message": "formatQuestionPresentation: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "formatQuestionPresentation: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "formatQuestionPresentation: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "formatQuestionPresentation: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "formatQuestionPresentation: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "formatQuestionPresentation: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "formatQuestionPresentation: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "formatQuestionPresentation: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "formatAnswerChoicesPresentation: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "formatAnswerChoicesPresentation: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "formatAnswerChoicesPresentation: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "formatAnswerChoicesPresentation: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "formatAnswerChoicesPresentation: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "formatAnswerChoicesPresentation: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "formatAnswerChoicesPresentation: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "formatAnswerChoicesPresentation: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "repairQuestionText: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "repairQuestionText: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "repairQuestionText: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "repairQuestionText: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "repairQuestionText: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "repairQuestionText: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "repairQuestionText: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "repairQuestionText: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "selectiveMetadata: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "selectiveMetadata: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "selectiveMetadata: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "selectiveMetadata: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "selectiveMetadata: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "selectiveMetadata: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "selectiveMetadata: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "selectiveMetadata: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "aiData: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "aiData: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "aiData: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "aiData: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "aiData: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "aiData: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "aiData: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "aiData: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "generateSolutions: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "generateSolutions: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "generateSolutions: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "generateSolutions: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "generateSolutions: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "generateSolutions: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "generateSolutions: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "generateSolutions: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "polishPresentation: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "polishPresentation: valid results stage (unchanged; unchanged)",
+      "passed": true
+    },
+    {
+      "message": "polishPresentation: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "polishPresentation: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "polishPresentation: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "polishPresentation: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "polishPresentation: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "polishPresentation: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "repairMath: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "repairMath: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "repairMath: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "repairMath: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "repairMath: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "repairMath: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "repairMath: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "repairMath: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "repairChoices: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "repairChoices: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "repairChoices: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "repairChoices: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "repairChoices: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "repairChoices: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "repairChoices: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "repairChoices: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "questionDiagrams: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "questionDiagrams: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "questionDiagrams: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "questionDiagrams: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "questionDiagrams: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "questionDiagrams: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "questionDiagrams: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "questionDiagrams: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "solutionDiagrams: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "solutionDiagrams: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "solutionDiagrams: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "solutionDiagrams: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "solutionDiagrams: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "solutionDiagrams: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "solutionDiagrams: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "solutionDiagrams: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "validateQuestions: generation writes no Question Bank fields",
+      "passed": true
+    },
+    {
+      "message": "validateQuestions: valid results stage (pending; pending)",
+      "passed": true
+    },
+    {
+      "message": "validateQuestions: actual before/after content is displayed",
+      "passed": true
+    },
+    {
+      "message": "validateQuestions: Accept saves and advances",
+      "passed": true
+    },
+    {
+      "message": "validateQuestions: Previous revisits accepted question",
+      "passed": true
+    },
+    {
+      "message": "validateQuestions: Reject restores original fields ([])",
+      "passed": true
+    },
+    {
+      "message": "validateQuestions: bulk acceptance processes usable proposals",
+      "passed": true
+    },
+    {
+      "message": "Validation review displays the actual stored independent answer and comparison",
+      "passed": true
+    },
+    {
+      "message": "Accepted validation remains current in the saved Question Bank",
+      "passed": true
+    },
+    {
+      "message": "validateQuestions: Finish returns to setup and ends task",
+      "passed": true
+    },
+    {
+      "message": "Full quality retains verifier and stages the final result",
+      "passed": true
+    },
+    {
+      "message": "Pause lets the current request finish and blocks the next request",
+      "passed": true
+    },
+    {
+      "message": "Configured spacing is enforced",
+      "passed": true
+    },
+    {
+      "message": "Stopping keeps completed proposals and exposes unfinished targets without another provider request",
+      "passed": true
+    },
+    {
+      "message": "Retry list is expanded and selected by default",
+      "passed": true
+    },
+    {
+      "message": "Clear all disables empty retry",
+      "passed": true
+    },
+    {
+      "message": "Select all restores retry",
+      "passed": true
+    },
+    {
+      "message": "Retry Selected processes only checked targets",
+      "passed": true
+    },
+    {
+      "message": "Combined operations share the evolving draft and stage all six results",
+      "passed": true
+    },
+    {
+      "message": "Combined generation preserves the saved original",
+      "passed": true
+    },
+    {
+      "message": "Reject All discards combined proposals without changing the bank",
+      "passed": true
+    },
+    {
+      "message": "Reject All can undo accepted combined fields",
+      "passed": true
+    },
+    {
+      "message": "Full quality spaces requests inside the same question",
+      "passed": true
+    },
+    {
+      "message": "Hosted batch uses its configured route, explicit spacing, and a single transport attempt",
+      "passed": true
+    },
+    {
+      "message": "Unfinished question cannot be accepted during generation",
+      "passed": true
+    },
+    {
+      "message": "Visible review becomes usable when its proposal arrives while other requests continue",
+      "passed": true
+    },
+    {
+      "message": "Closing an active API task does not reopen the dialog on completion",
+      "passed": true
+    },
+    {
+      "message": "Closed task reopens with its staged review",
+      "passed": true
+    },
+    {
+      "message": "Cancelling early Finish retains proposals",
+      "passed": true
+    },
+    {
+      "message": "Confirmed early Finish clears task tracking",
+      "passed": true
+    },
+    {
+      "message": "Live delay changes apply to the current wait",
+      "passed": true
+    },
+    {
+      "message": "Skip while paused sends no skipped request and preserves remaining targets",
+      "passed": true
+    },
+    {
+      "message": "Only-needing scope and Replace Existing off preserve existing solutions",
+      "passed": true
+    },
+    {
+      "message": "429 pauses further requests without blindly resending",
+      "passed": true
+    },
+    {
+      "message": "Resume continues untouched targets; rate-limited target remains selectable for retry",
+      "passed": true
+    },
+    {
+      "message": "Resume honors the provider cooldown",
+      "passed": true
+    },
+    {
+      "message": "Partial failure stages only successful operations and preserves other fields",
+      "passed": true
+    },
+    {
+      "message": "Failed retry preserves the earlier valid proposal",
+      "passed": true
+    },
+    {
+      "message": "Failed retry retains a previous Reject decision",
+      "passed": true
+    },
+    {
+      "message": "Failed retry retains a previous Accept decision and undo patch",
+      "passed": true
+    },
+    {
+      "message": "A failed accepted retry can still restore the original saved fields",
+      "passed": true
+    },
+    {
+      "message": "Acceptance rejects stale proposals",
+      "passed": true
+    },
+    {
+      "message": "Undo protects edits made after acceptance",
+      "passed": true
+    },
+    {
+      "message": "Reload recovers decisions without automatically rerunning requests",
+      "passed": true
+    },
+    {
+      "message": "Reopening setup exposes Resume API Review",
+      "passed": true
+    },
+    {
+      "message": "Reloading an active run marks it interrupted and retains its completed proposal",
+      "passed": true
+    },
+    {
+      "message": "Storage failure stops generation before the first provider request",
+      "passed": true
+    },
+    {
+      "message": "No uncaught browser errors: ",
+      "passed": true
+    },
+    {
+      "message": "No live provider calls made during QA",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": []
+}

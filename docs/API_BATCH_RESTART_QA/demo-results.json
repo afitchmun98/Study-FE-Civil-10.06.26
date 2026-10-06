@@ -1,0 +1,503 @@
+{
+  "passed": 124,
+  "checks": [
+    {
+      "label": "Desktop setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "Three sample task types are available",
+      "passed": true
+    },
+    {
+      "label": "solution: five proposals and one retry item in prepared review",
+      "passed": true
+    },
+    {
+      "label": "solution: staging has not written to sample bank",
+      "passed": true
+    },
+    {
+      "label": "solution: Accept & Next saves and advances",
+      "passed": true
+    },
+    {
+      "label": "solution: accept changes saved sample content",
+      "passed": true
+    },
+    {
+      "label": "solution: revisit accepted question and restore original",
+      "passed": true
+    },
+    {
+      "label": "solution: bulk accepts four changes and marks unchanged reviewed",
+      "passed": true
+    },
+    {
+      "label": "solution: bulk rejection restores saved changes",
+      "passed": true
+    },
+    {
+      "label": "solution: Go to question revisits accepted records",
+      "passed": true
+    },
+    {
+      "label": "solution: retry list only includes unfinished question",
+      "passed": true
+    },
+    {
+      "label": "solution: Clear all disables empty retry",
+      "passed": true
+    },
+    {
+      "label": "solution: Select all selects retry target",
+      "passed": true
+    },
+    {
+      "label": "solution: single retry creates proposal and keeps other decisions",
+      "passed": true
+    },
+    {
+      "label": "solution: finish closes completed review",
+      "passed": true
+    },
+    {
+      "label": "solution: accepted changes survive End Task",
+      "passed": true
+    },
+    {
+      "label": "metadata: five proposals and one retry item in prepared review",
+      "passed": true
+    },
+    {
+      "label": "metadata: staging has not written to sample bank",
+      "passed": true
+    },
+    {
+      "label": "metadata: Accept & Next saves and advances",
+      "passed": true
+    },
+    {
+      "label": "metadata: accept changes saved sample content",
+      "passed": true
+    },
+    {
+      "label": "metadata: revisit accepted question and restore original",
+      "passed": true
+    },
+    {
+      "label": "metadata: bulk accepts four changes and marks unchanged reviewed",
+      "passed": true
+    },
+    {
+      "label": "metadata: bulk rejection restores saved changes",
+      "passed": true
+    },
+    {
+      "label": "metadata: Go to question revisits accepted records",
+      "passed": true
+    },
+    {
+      "label": "metadata: retry list only includes unfinished question",
+      "passed": true
+    },
+    {
+      "label": "metadata: Clear all disables empty retry",
+      "passed": true
+    },
+    {
+      "label": "metadata: Select all selects retry target",
+      "passed": true
+    },
+    {
+      "label": "metadata: single retry creates proposal and keeps other decisions",
+      "passed": true
+    },
+    {
+      "label": "metadata: finish closes completed review",
+      "passed": true
+    },
+    {
+      "label": "metadata: accepted changes survive End Task",
+      "passed": true
+    },
+    {
+      "label": "text: five proposals and one retry item in prepared review",
+      "passed": true
+    },
+    {
+      "label": "text: staging has not written to sample bank",
+      "passed": true
+    },
+    {
+      "label": "text: Accept & Next saves and advances",
+      "passed": true
+    },
+    {
+      "label": "text: accept changes saved sample content",
+      "passed": true
+    },
+    {
+      "label": "text: revisit accepted question and restore original",
+      "passed": true
+    },
+    {
+      "label": "text: bulk accepts four changes and marks unchanged reviewed",
+      "passed": true
+    },
+    {
+      "label": "text: bulk rejection restores saved changes",
+      "passed": true
+    },
+    {
+      "label": "text: Go to question revisits accepted records",
+      "passed": true
+    },
+    {
+      "label": "text: retry list only includes unfinished question",
+      "passed": true
+    },
+    {
+      "label": "text: Clear all disables empty retry",
+      "passed": true
+    },
+    {
+      "label": "text: Select all selects retry target",
+      "passed": true
+    },
+    {
+      "label": "text: single retry creates proposal and keeps other decisions",
+      "passed": true
+    },
+    {
+      "label": "text: finish closes completed review",
+      "passed": true
+    },
+    {
+      "label": "text: accepted changes survive End Task",
+      "passed": true
+    },
+    {
+      "label": "Pause finishes current response and prevents next request",
+      "passed": true
+    },
+    {
+      "label": "Paused generation leaves sample bank unchanged",
+      "passed": true
+    },
+    {
+      "label": "Skip and Stop preserve available proposals",
+      "passed": true
+    },
+    {
+      "label": "Stopped and skipped questions are selected for retry by default",
+      "passed": true
+    },
+    {
+      "label": "Retry runs exactly selected target and preserves accepted decisions",
+      "passed": true
+    },
+    {
+      "label": "Unreviewed or unfinished task gets explicit end confirmation",
+      "passed": true
+    },
+    {
+      "label": "Keep Reviewing returns to review",
+      "passed": true
+    },
+    {
+      "label": "Ending incomplete task retains accepted content",
+      "passed": true
+    },
+    {
+      "label": "Rate limit pauses at the failed question before later requests",
+      "passed": true
+    },
+    {
+      "label": "Resume does not bypass cooldown",
+      "passed": true
+    },
+    {
+      "label": "Resume continues remaining questions; rate-limited item stays available for retry",
+      "passed": true
+    },
+    {
+      "label": "Retry succeeds after simulated rate limit",
+      "passed": true
+    },
+    {
+      "label": "Failed response does not stop other questions or save broken output",
+      "passed": true
+    },
+    {
+      "label": "Failed response is repairable with a selected retry",
+      "passed": true
+    },
+    {
+      "label": "Closing leaves a task-reopen control",
+      "passed": true
+    },
+    {
+      "label": "Closed task keeps running and reopens with all proposals",
+      "passed": true
+    },
+    {
+      "label": "Reload recovers proposals, marks unfinished work interrupted, and never restarts requests",
+      "passed": true
+    },
+    {
+      "label": "Save & Exit halts the demo and leaves the task recoverable",
+      "passed": true
+    },
+    {
+      "label": "Saved task exposes Resume Unfinished Work after reload",
+      "passed": true
+    },
+    {
+      "label": "Resume retains accepted content and never repeats completed questions",
+      "passed": true
+    },
+    {
+      "label": "Resume completes every unfinished demo question",
+      "passed": true
+    },
+    {
+      "label": "Usage exhaustion saves and stops before any further request",
+      "passed": true
+    },
+    {
+      "label": "Usage suspension keeps completed proposals without saving them",
+      "passed": true
+    },
+    {
+      "label": "Usage recovery waits for simulated restored access",
+      "passed": true
+    },
+    {
+      "label": "Usage exhaustion and earlier proposals survive reload",
+      "passed": true
+    },
+    {
+      "label": "Restored access resumes at the interrupted question and preserves earlier results",
+      "passed": true
+    },
+    {
+      "label": "Review header exposes Start Over beside Close",
+      "passed": true
+    },
+    {
+      "label": "Cancel restart retains proposals and decisions",
+      "passed": true
+    },
+    {
+      "label": "Restart explains accepted changes and loss of task undo",
+      "passed": true
+    },
+    {
+      "label": "Start Over returns to setup and keeps accepted sample changes",
+      "passed": true
+    },
+    {
+      "label": "Restart deletion and accepted sample content survive reload",
+      "passed": true
+    },
+    {
+      "label": "Cancel active restart leaves generation running",
+      "passed": true
+    },
+    {
+      "label": "Active restart cancels pending timers without late proposals or bank writes",
+      "passed": true
+    },
+    {
+      "label": "Paused run can start over immediately",
+      "passed": true
+    },
+    {
+      "label": "Stopped run can start over directly",
+      "passed": true
+    },
+    {
+      "label": "Usage-exhausted run can start over without restoring API access",
+      "passed": true
+    },
+    {
+      "label": "Saved and reopened run can start over",
+      "passed": true
+    },
+    {
+      "label": "1920×1080 setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1920×1080 review: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1920×1080: Previous and Next remain adjacent",
+      "passed": true
+    },
+    {
+      "label": "1920×1080 finish: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1920×1080 activity: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1440×1000 setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1440×1000 review: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1440×1000: Previous and Next remain adjacent",
+      "passed": true
+    },
+    {
+      "label": "1440×1000 finish: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1440×1000 activity: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1024×768 setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1024×768 review: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1024×768: Previous and Next remain adjacent",
+      "passed": true
+    },
+    {
+      "label": "1024×768 finish: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "1024×768 activity: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "768×1024 setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "768×1024 review: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "768×1024: Previous and Next remain adjacent",
+      "passed": true
+    },
+    {
+      "label": "768×1024 finish: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "768×1024 activity: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "560×800 setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "560×800 review: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "560×800: Previous and Next remain adjacent",
+      "passed": true
+    },
+    {
+      "label": "560×800 finish: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "560×800 activity: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "375×812 setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "375×812 review: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "375×812: Previous and Next remain adjacent",
+      "passed": true
+    },
+    {
+      "label": "375×812 finish: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "375×812 activity: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "320×640 setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "320×640 review: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "320×640: Previous and Next remain adjacent",
+      "passed": true
+    },
+    {
+      "label": "320×640 finish: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "320×640 activity: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "844×390 setup: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "844×390 review: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "844×390: Previous and Next remain adjacent",
+      "passed": true
+    },
+    {
+      "label": "844×390 finish: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "844×390 activity: controls and panels fit ([])",
+      "passed": true
+    },
+    {
+      "label": "No browser errors ()",
+      "passed": true
+    },
+    {
+      "label": "No external network requests",
+      "passed": true
+    },
+    {
+      "label": "Standalone file works offline without a server",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "external": []
+}

@@ -1,0 +1,3082 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 239,
+        "scrollWidth": 239
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 239,
+        "scrollWidth": 239
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 239,
+        "scrollWidth": 239
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 239,
+        "scrollWidth": 239
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 239,
+        "scrollWidth": 239
+      },
+      {
+        "width": 226,
+        "scrollWidth": 226
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 239,
+        "scrollWidth": 239
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 239,
+        "scrollWidth": 239
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 320,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 294,
+        "scrollWidth": 294
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 294,
+        "scrollWidth": 294
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 294,
+        "scrollWidth": 294
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 294,
+        "scrollWidth": 294
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 294,
+        "scrollWidth": 294
+      },
+      {
+        "width": 281,
+        "scrollWidth": 281
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 294,
+        "scrollWidth": 294
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 294,
+        "scrollWidth": 294
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 375,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 519,
+        "scrollWidth": 519
+      }
+    ]
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 519,
+        "scrollWidth": 519
+      }
+    ]
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 519,
+        "scrollWidth": 519
+      }
+    ]
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 519,
+        "scrollWidth": 519
+      }
+    ]
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 519,
+        "scrollWidth": 519
+      },
+      {
+        "width": 506,
+        "scrollWidth": 506
+      }
+    ]
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 519,
+        "scrollWidth": 519
+      }
+    ]
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 519,
+        "scrollWidth": 519
+      }
+    ]
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "height": 900,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 600,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 687,
+        "scrollWidth": 687
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 687,
+        "scrollWidth": 687
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 687,
+        "scrollWidth": 687
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 687,
+        "scrollWidth": 687
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 687,
+        "scrollWidth": 687
+      },
+      {
+        "width": 674,
+        "scrollWidth": 674
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 687,
+        "scrollWidth": 687
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 687,
+        "scrollWidth": 687
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 768,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      },
+      {
+        "width": 762,
+        "scrollWidth": 762
+      }
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 844,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 735,
+        "scrollWidth": 735
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 735,
+        "scrollWidth": 735
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 735,
+        "scrollWidth": 735
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 735,
+        "scrollWidth": 735
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 735,
+        "scrollWidth": 735
+      },
+      {
+        "width": 942,
+        "scrollWidth": 942
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 735,
+        "scrollWidth": 735
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 735,
+        "scrollWidth": 735
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1024,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 299,
+        "scrollWidth": 299
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 299,
+        "scrollWidth": 299
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 299,
+        "scrollWidth": 299
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 486,
+        "scrollWidth": 486
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 486,
+        "scrollWidth": 486
+      },
+      {
+        "width": 1198,
+        "scrollWidth": 1198
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 486,
+        "scrollWidth": 486
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 486,
+        "scrollWidth": 486
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1280,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 341,
+        "scrollWidth": 341
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 341,
+        "scrollWidth": 341
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 341,
+        "scrollWidth": 341
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      },
+      {
+        "width": 1346,
+        "scrollWidth": 1346
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 555,
+        "scrollWidth": 555
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1440,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 349,
+        "scrollWidth": 349
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 349,
+        "scrollWidth": 349
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 349,
+        "scrollWidth": 349
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 567,
+        "scrollWidth": 567
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 567,
+        "scrollWidth": 567
+      },
+      {
+        "width": 1826,
+        "scrollWidth": 1826
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 567,
+        "scrollWidth": 567
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 567,
+        "scrollWidth": 567
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 1920,
+    "view": "page-errors",
+    "errors": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "home",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "practice",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 349,
+        "scrollWidth": 349
+      }
+    ]
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "practice-session-card",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 349,
+        "scrollWidth": 349
+      }
+    ]
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "practice-subtopics",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 349,
+        "scrollWidth": 349
+      }
+    ]
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "exam",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "bank",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "worksheets",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "references",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "generate",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 567,
+        "scrollWidth": 567
+      }
+    ]
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "results",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "settings",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "more-filters",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "bank-membership",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "sources",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "tools-menu",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "question-editor",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "bank-maintenance",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "ai-routing",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "ai-batch-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "worksheet-builder",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 567,
+        "scrollWidth": 567
+      },
+      {
+        "width": 2466,
+        "scrollWidth": 2466
+      }
+    ]
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "profile",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 567,
+        "scrollWidth": 567
+      }
+    ]
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "worksheet-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "worksheet-metadata",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "results-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "generate-populated",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": [
+      {
+        "width": 567,
+        "scrollWidth": 567
+      }
+    ]
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "practice-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "practice-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "practice-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "practice-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "exam-live",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "exam-answered",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "exam-footer",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "view": "exam-no-tools",
+    "issues": [],
+    "documentOverflow": 0,
+    "rangeRows": []
+  },
+  {
+    "width": 2560,
+    "view": "page-errors",
+    "errors": []
+  }
+]

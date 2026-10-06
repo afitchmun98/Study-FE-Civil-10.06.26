@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "message": "Downloaded standalone boots with bundled questions",
+      "passed": true
+    },
+    {
+      "message": "Standalone shows the new real batch workspace",
+      "passed": true
+    },
+    {
+      "message": "Standalone retains all nine task families",
+      "passed": true
+    },
+    {
+      "message": "Standalone question list starts collapsed with the paste editor below",
+      "passed": true
+    },
+    {
+      "message": "Standalone has one inline response editor",
+      "passed": true
+    },
+    {
+      "message": "Standalone freezes and displays the five available questions within a 20-question limit",
+      "passed": true
+    },
+    {
+      "message": "The actual file build resumes the same batch after reload",
+      "passed": true
+    },
+    {
+      "message": "Standalone exposes request pacing and all 12 API operations",
+      "passed": true
+    },
+    {
+      "message": "API header remains onscreen after switching from manual ({\"top\":17,\"bottom\":96.25,\"scroll\":0})",
+      "passed": true
+    },
+    {
+      "message": "Standalone has no uncaught browser errors",
+      "passed": true
+    },
+    {
+      "message": "Standalone smoke test made no provider requests",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": [],
+  "sha256": "d2305a2294881e006f17c2264ecb831a874bf8e2f6b08dcc154bcb4531bc76ba"
+}

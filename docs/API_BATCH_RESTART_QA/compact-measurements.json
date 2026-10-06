@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "viewport": "1440x1000",
+  "sameFixture": true,
+  "currentAppSHA256": "fe64b359c14dae7aee78b7434bd4b10346ad4c78f46b30bebd43d0ab3412965a",
+  "reduction": {
+    "setup": {
+      "previousPx": 1191,
+      "currentPx": 1106,
+      "reductionPercent": 7
+    },
+    "review": {
+      "previousPx": 504,
+      "currentPx": 459,
+      "reductionPercent": 9
+    },
+    "overview": {
+      "previousPx": 473,
+      "currentPx": 337,
+      "reductionPercent": 29
+    },
+    "activity": {
+      "previousPx": 362,
+      "currentPx": 200,
+      "reductionPercent": 45
+    }
+  }
+}

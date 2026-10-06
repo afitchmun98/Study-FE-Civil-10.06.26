@@ -1,0 +1,77 @@
+{
+  "update": false,
+  "results": [
+    {
+      "filename": "375-practice.png",
+      "changedPixels": 23,
+      "ratio": 0.00006814814814814815,
+      "failed": false
+    },
+    {
+      "filename": "375-session-setup.png",
+      "changedPixels": 23,
+      "ratio": 0.00006814814814814815,
+      "failed": false
+    },
+    {
+      "filename": "375-no-matches.png",
+      "changedPixels": 0,
+      "ratio": 0,
+      "failed": false
+    },
+    {
+      "filename": "375-active-filters.png",
+      "changedPixels": 0,
+      "ratio": 0,
+      "failed": false
+    },
+    {
+      "filename": "768-practice.png",
+      "changedPixels": 23,
+      "ratio": 0.000033275462962962965,
+      "failed": false
+    },
+    {
+      "filename": "768-session-setup.png",
+      "changedPixels": 23,
+      "ratio": 0.000033275462962962965,
+      "failed": false
+    },
+    {
+      "filename": "768-no-matches.png",
+      "changedPixels": 0,
+      "ratio": 0,
+      "failed": false
+    },
+    {
+      "filename": "768-active-filters.png",
+      "changedPixels": 23,
+      "ratio": 0.000033275462962962965,
+      "failed": false
+    },
+    {
+      "filename": "1440-practice.png",
+      "changedPixels": 0,
+      "ratio": 0,
+      "failed": false
+    },
+    {
+      "filename": "1440-session-setup.png",
+      "changedPixels": 0,
+      "ratio": 0,
+      "failed": false
+    },
+    {
+      "filename": "1440-no-matches.png",
+      "changedPixels": 0,
+      "ratio": 0,
+      "failed": false
+    },
+    {
+      "filename": "1440-active-filters.png",
+      "changedPixels": 127,
+      "ratio": 0.00009799382716049382,
+      "failed": false
+    }
+  ]
+}

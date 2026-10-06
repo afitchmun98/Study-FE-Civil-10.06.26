@@ -1,0 +1,19 @@
+{
+  "FE_Civil_Practice_Lab_EXP3.0.2.4.3.46_STANDALONE.html": {
+    "sha256": "58e75d825b1b5e70e03b3485209054d46ca31aa5e5371ffd21ee9f2e90ce9e68",
+    "preserved": true
+  },
+  "FE_Civil_EXP3.0.2.4.3.46_GitHub_AI_Studio_Ready.zip": {
+    "sha256": "bef839f8ced246b6c3f4d2666748d7232e1e02b1eec848ce58a56bdfaacd3549",
+    "preserved": true
+  },
+  "ui/batch-workspace.js": {
+    "unchanged": true
+  },
+  "ui/batch-workspace.css": {
+    "unchanged": true
+  },
+  "ui/api-batch-review.css": {
+    "unchanged": true
+  }
+}

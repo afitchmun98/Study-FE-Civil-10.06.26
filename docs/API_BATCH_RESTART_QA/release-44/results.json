@@ -1,0 +1,152 @@
+{
+  "passed": true,
+  "initialSourceSHA256": "fe64b359c14dae7aee78b7434bd4b10346ad4c78f46b30bebd43d0ab3412965a",
+  "finalSourceSHA256": "fe64b359c14dae7aee78b7434bd4b10346ad4c78f46b30bebd43d0ab3412965a",
+  "sourceUnchanged": true,
+  "results": [
+    {
+      "suite": "verify",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "api-batch-review-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "batch-inline-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "batch-workspace-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "batch-workspace-api-queue-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "sidebar-tooltips-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "adaptive-filters-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "filter-cleanup-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "review-controls-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "solution-indicator-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "bulk-solution-review-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "batch-tools-ui-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "manual-metadata-regression",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "manual-review-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "toolbar-simplification-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "bank-table-fit-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "bank-workspace-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "study-workflows-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "ui-regression",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "popover-reopen-qa",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "dropdown-diagnostics",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "responsive-interactions",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "responsive-audit",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "suite": "visual-regression",
+      "passed": true,
+      "exitCode": 0,
+      "signal": null
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "sameFixture": true,
+  "appSHA256": "51619cda4f6ab70ffa2d1e30a462bf6ab159aeda67720d8aa15a0e553ef54e33",
+  "measurements": {
+    "1440": {
+      "previous": {
+        "default": {
+          "operations": {
+            "height": 597,
+            "width": 1088
+          },
+          "setup": {
+            "height": 1054,
+            "width": 1088
+          },
+          "operationCount": 12
+        },
+        "allSelected": {
+          "operations": {
+            "height": 748,
+            "width": 1088
+          },
+          "setup": {
+            "height": 1862,
+            "width": 1088
+          },
+          "operationCount": 12
+        }
+      },
+      "current": {
+        "default": {
+          "operations": {
+            "height": 422,
+            "width": 1362
+          },
+          "setup": {
+            "height": 876,
+            "width": 1362
+          },
+          "operationCount": 12
+        },
+        "allSelected": {
+          "operations": {
+            "height": 906,
+            "width": 1362
+          },
+          "setup": {
+            "height": 2017,
+            "width": 1362
+          },
+          "operationCount": 12
+        }
+      }
+    },
+    "1920": {
+      "previous": {
+        "default": {
+          "operations": {
+            "height": 597,
+            "width": 1180
+          },
+          "setup": {
+            "height": 1054,
+            "width": 1180
+          },
+          "operationCount": 12
+        },
+        "allSelected": {
+          "operations": {
+            "height": 748,
+            "width": 1180
+          },
+          "setup": {
+            "height": 1862,
+            "width": 1180
+          },
+          "operationCount": 12
+        }
+      },
+      "current": {
+        "default": {
+          "operations": {
+            "height": 419,
+            "width": 1454
+          },
+          "setup": {
+            "height": 873,
+            "width": 1454
+          },
+          "operationCount": 12
+        },
+        "allSelected": {
+          "operations": {
+            "height": 903,
+            "width": 1454
+          },
+          "setup": {
+            "height": 2014,
+            "width": 1454
+          },
+          "operationCount": 12
+        }
+      }
+    }
+  },
+  "reductions": {
+    "1440": {
+      "default": {
+        "operations": {
+          "previousPx": 597,
+          "currentPx": 422,
+          "reductionPercent": 29
+        },
+        "setup": {
+          "previousPx": 1054,
+          "currentPx": 876,
+          "reductionPercent": 17
+        }
+      },
+      "allSelected": {
+        "operations": {
+          "previousPx": 748,
+          "currentPx": 906,
+          "reductionPercent": -21
+        },
+        "setup": {
+          "previousPx": 1862,
+          "currentPx": 2017,
+          "reductionPercent": -8
+        }
+      }
+    },
+    "1920": {
+      "default": {
+        "operations": {
+          "previousPx": 597,
+          "currentPx": 419,
+          "reductionPercent": 30
+        },
+        "setup": {
+          "previousPx": 1054,
+          "currentPx": 873,
+          "reductionPercent": 17
+        }
+      },
+      "allSelected": {
+        "operations": {
+          "previousPx": 748,
+          "currentPx": 903,
+          "reductionPercent": -21
+        },
+        "setup": {
+          "previousPx": 1862,
+          "currentPx": 2014,
+          "reductionPercent": -8
+        }
+      }
+    }
+  },
+  "criteria": "Default operation area is at least 20% shorter; all 12 controls remain available; expanded settings use more horizontal space. All-selected height is reported without a reduction requirement."
+}

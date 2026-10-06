@@ -1,0 +1,176 @@
+{
+  "passed": true,
+  "sourceSHA256": "00356c5c6c5c6c407f35fa7fb17db708702e2ed041a55caa6cbc8fb1beeff7fc",
+  "checks": [
+    {
+      "name": "Default approval group is 50",
+      "passed": true
+    },
+    {
+      "name": "Approval size changes the next-group action",
+      "passed": true
+    },
+    {
+      "name": "API next group leaves later proposals pending",
+      "passed": true
+    },
+    {
+      "name": "API group redraws once, not once per question",
+      "passed": true
+    },
+    {
+      "name": "Accepted API questions retain guarded undo",
+      "passed": true
+    },
+    {
+      "name": "Approve next skips rejected decisions",
+      "passed": true
+    },
+    {
+      "name": "Next group disables when no pending proposals remain",
+      "passed": true
+    },
+    {
+      "name": "Pending API proposals expose the next-group action before generation/save locks",
+      "passed": true
+    },
+    {
+      "name": "Group approval is disabled while API generation is active",
+      "passed": true
+    },
+    {
+      "name": "Group approval is disabled while an individual API save is active",
+      "passed": true
+    },
+    {
+      "name": "Stop remains usable while approvals are saving",
+      "passed": true
+    },
+    {
+      "name": "Stop completes the in-flight save then leaves the remaining group untouched",
+      "passed": true
+    },
+    {
+      "name": "Completed staged approvals recover after reload",
+      "passed": true
+    },
+    {
+      "name": "Approval can continue from the saved stopping point",
+      "passed": true
+    },
+    {
+      "name": "Mid-group reload restores each journaled API decision",
+      "passed": true
+    },
+    {
+      "name": "Recovered mid-group approval retains undo",
+      "passed": true
+    },
+    {
+      "name": "Escape requests a safe stop instead of dismissing an active approval",
+      "passed": true
+    },
+    {
+      "name": "Unavailable checkpoint storage prevents approval before any question is changed",
+      "passed": true
+    },
+    {
+      "name": "Failed checkpoint releases the approval lock for recovery",
+      "passed": true
+    },
+    {
+      "name": "api: 2,000 real question approvals succeed",
+      "passed": true
+    },
+    {
+      "name": "api: session checkpoints/redraws are bounded by groups",
+      "passed": true
+    },
+    {
+      "name": "api: final approved question is durably saved",
+      "passed": true
+    },
+    {
+      "name": "generic: 2,000 real question approvals succeed",
+      "passed": true
+    },
+    {
+      "name": "generic: session checkpoints/redraws are bounded by groups",
+      "passed": true
+    },
+    {
+      "name": "generic: final approved question is durably saved",
+      "passed": true
+    },
+    {
+      "name": "Large manual review uses IndexedDB instead of exceeding localStorage quota",
+      "passed": true
+    },
+    {
+      "name": "Large manual review and all decisions recover after reload",
+      "passed": true
+    },
+    {
+      "name": "Manual rejection also works in bounded stages",
+      "passed": true
+    },
+    {
+      "name": "Large recovered manual approvals retain undo",
+      "passed": true
+    },
+    {
+      "name": "Finish remains ended after immediate reload even when disk cleanup was interrupted",
+      "passed": true
+    },
+    {
+      "name": "Ending recovered review preserves accepted Question Bank changes",
+      "passed": true
+    },
+    {
+      "name": "Manual next group changes only the chosen ten",
+      "passed": true
+    },
+    {
+      "name": "Stale proposal is skipped while other valid and unchanged proposals are resolved",
+      "passed": true
+    },
+    {
+      "name": "Staged approval protects later edits and marks unchanged proposals reviewed",
+      "passed": true
+    },
+    {
+      "name": "Manual next group leaves invalid proposals available for retry",
+      "passed": true
+    },
+    {
+      "name": "Dedicated Question Text manual review supports staged approval",
+      "passed": true
+    },
+    {
+      "name": "API setup exposes request batch size",
+      "passed": true
+    },
+    {
+      "name": "API request size is remembered",
+      "passed": true
+    },
+    {
+      "name": "Configured request size controls actual metadata grouping",
+      "passed": true
+    },
+    {
+      "name": "Request size is bounded to one through twenty",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true
+    },
+    {
+      "name": "No provider requests were made",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": []
+}
