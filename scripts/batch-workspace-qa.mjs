@@ -1,0 +1,270 @@
+import {auditBatchLayout,finishBatchLayoutAudit} from './batch-layout-audit.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import crypto from 'node:crypto';
+import {createRequire} from 'node:module';
+import {fileURLToPath} from 'node:url';
+
+// Run against an isolated browser database. The application source is only read;
+// fixtures are exposed in the fulfilled page, never written into index.html.
+const require=createRequire(import.meta.url),{chromium}=require('playwright');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const output=process.env.BATCH_WORKSPACE_QA_OUTPUT||path.join(os.tmpdir(),'fe-batch-workspace-qa');
+fs.mkdirSync(output,{recursive:true});
+const filename=path.join(root,'index.html'),source=fs.readFileSync(filename,'utf8');
+const digest=value=>crypto.createHash('sha256').update(value).digest('hex');
+const sourceHash=digest(source),anchor='  state.activityRecords = function() {';
+if(!source.includes(anchor))throw new Error('Missing isolated batch workspace QA hook anchor.');
+const hooks=['state','dbPut','dbGet','showBatchSolutions','ensureManualSolutionBatchState','ensureManualQuestionTextBatchState','manualWholeSelectionEnsureLedger','showManualWholeSelectionReview','persistManualSolutionBatchSession','canonicalStableStringify','resetManualSolutionBatchSession','manualQuestionTextBatchDefaultState','persistManualQuestionTextBatchState','renderApp'];
+const html=source.replace(anchor,`  setTimeout(()=>window.__workspaceQA={${hooks.join(',')}},0);\n${anchor}`);
+const checks=[],errors=[],providerRequests=[],layoutChecks=[];
+const check=(value,message,details)=>{checks.push({message,passed:Boolean(value),...(details===undefined?{}:{details})});if(!value)throw new Error(`Assertion ${checks.length}: ${message}${details===undefined?'':' '+JSON.stringify(details)}`);};
+const browser=await chromium.launch({headless:true,executablePath:process.env.PLAYWRIGHT_CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+let page;
+const stageSelector=stage=>`.batch-workspace-stages [data-action="batch-workspace-stage"][data-stage="${stage}"]`;
+const modalSelector='.modal[aria-label="AI Batch Tools"]';
+const idle=async()=>{await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));};
+const stage=async value=>{await page.locator(stageSelector(value)).click();await idle();};
+const genericState=()=>page.evaluate(()=>{const m=window.__workspaceQA.ensureManualSolutionBatchState();return {session:m.sessionID,selected:m.selectedBatchFingerprint,batches:m.batches.map(b=>({fingerprint:b.batchFingerprint,count:b.packages.length,ids:b.questionIds})),items:m.reviewItems.map(i=>({id:i.id,questionId:i.questionId,status:i.status})),index:m.reviewIndex,retry:m.reviewRetry,targetIDs:m.targetIDs};});
+const screenshot=async name=>{await idle();await page.screenshot({path:path.join(output,name+'.png'),animations:'disabled'});};
+async function openPaste(){await page.locator('[data-action="paste-manual-solution-batch-results"]').first().click();await page.locator('#manual-solution-batch-results').waitFor({state:'visible'});}
+async function importMetadata(count){
+ const fixture=await page.evaluate(async count=>{
+  const a=window.__workspaceQA,m=a.ensureManualSolutionBatchState(),b=m.batches.find(b=>b.batchFingerprint===m.selectedBatchFingerprint);
+  const records=await Promise.all(b.packages.map(p=>a.dbGet('questions',p.questionId)));
+  const results=b.packages.slice(0,count).map(pkg=>{
+   const request=pkg.selectiveMetadataRequest,tax=request.modelProjection.taxonomy,q=records.find(q=>q.id===pkg.questionId);
+   const topic=Object.keys(tax).find(t=>t!==q.topic&&tax[t]?.length)||Object.keys(tax)[0];
+   return {questionId:pkg.questionId,questionRevision:pkg.questionRevision,packageFingerprint:pkg.packageFingerprint,outputs:{selectiveMetadata:{schemaVersion:'1.0',questionId:pkg.questionId,requestFingerprint:request.requestFingerprint,requestedGroups:[...request.requestedGroups],metadata:{topic,subtopic:tax[topic][0]}}}};
+  });
+  window.__workspaceBeforeImport=records;
+  return {payload:{schemaVersion:'2.0',batchFingerprint:b.batchFingerprint,requestedOperations:b.requestedOperations,results},firstOriginal:records[0],firstProposed:results[0]?.outputs.selectiveMetadata.metadata};
+ },count);
+ await page.locator('#manual-solution-batch-results').fill(JSON.stringify(fixture.payload));
+ await page.locator('[data-action="import-manual-solution-batch-results"]').click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualSolutionBatchState().reviewItems.some(i=>i.status==='proposal_pending'));
+ const unchanged=await page.evaluate(async()=>{const a=window.__workspaceQA;return (await Promise.all(window.__workspaceBeforeImport.map(q=>a.dbGet('questions',q.id)))).every((q,i)=>a.canonicalStableStringify(q)===a.canonicalStableStringify(window.__workspaceBeforeImport[i]));});
+ check(unchanged,'Pasting real metadata output stages proposals without changing stored records');
+ return fixture;
+}
+try{
+ page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce',colorScheme:'dark'});
+ page.setDefaultTimeout(15000);
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.route('**/*',async route=>{
+  const url=route.request().url();
+  if(/api\.openai\.com|generativelanguage\.googleapis\.com/.test(url)){providerRequests.push(url);await route.abort();return;}
+  if(url==='http://fe-batch-workspace-qa.local/'){await route.fulfill({contentType:'text/html',body:html});return;}
+  await route.continue();
+ });
+ await page.goto('http://fe-batch-workspace-qa.local/',{waitUntil:'domcontentloaded',timeout:60000});
+ await page.waitForFunction(()=>window.__workspaceQA?.state.questions.length);
+ await page.evaluate(async()=>{
+  const a=window.__workspaceQA,seed=structuredClone(a.state.questions[0]);
+  const questions=Array.from({length:45},(_,i)=>({...structuredClone(seed),id:`WORKSPACE-Q${String(i+1).padStart(2,'0')}`,question:`Question ${i+1}: Compute the sum of 2 and 2. What is the result?`,choices:['4','5','6','7'],answerIndex:0,answerLetter:'A',solution:'',hint:'',equations:[],diagram:null,topic:'Mathematics and Statistics',subtopic:'Algebra',additionalMetadata:{},generationMetadata:{},updatedAt:'2026-09-30T12:00:00.000Z'}));
+  for(const q of questions)await a.dbPut('questions',q);
+  a.state.questions=questions;a.state.bank.selection=new Set(questions.map(q=>q.id));a.state.aiBatchToolsManualOperation='metadata';
+  a.state.manualSolutionBatch={};a.state.manualQuestionTextBatch=a.manualQuestionTextBatchDefaultState();a.persistManualQuestionTextBatchState();
+  a.showBatchSolutions({fresh:true});
+ });
+ check(await page.locator('.batch-workspace-shell').count()===1,'New dialog uses the approved workspace shell');
+ check(await page.locator('[data-action="start-batch-solutions"]').isDisabled(),'API batch remains disabled until an operation is selected');
+ await page.locator('[data-action="switch-ai-batch-tools-tab"][data-tab="manual"]').click();
+ check(await page.locator('[data-action="batch-workspace-stage"]').count()===4,'Manual workflow exposes Setup, Batches, Review, and Finish');
+ check(await page.locator('#manual-batch-operation').inputValue()==='metadata','Manual setup honors the requested metadata task');
+ check(await page.locator('#manual-batch-operation option').count()===9,'All nine existing manual task families remain available');
+ await page.locator('[data-action="selective-metadata-manual-clear-all"]').click();
+ await page.locator('[data-selective-metadata-manual-group][value="topic"]').check();
+ await page.locator('[data-selective-metadata-manual-group][value="subtopic"]').check();
+ await page.locator('#manual-solution-batch-size').fill('20');await page.locator('#manual-solution-batch-size').press('Tab');
+ await page.locator('[data-action="copy-manual-solution-batch-prompt"]').click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualSolutionBatchState().batches.length===1);
+ await stage('batches');
+ const first=(await genericState()).batches[0].fingerprint;
+ check(await page.locator('.batch-workspace-overview').isVisible(),'Task overview stays visible while managing batches');
+ check(await page.locator('.manual-batch-shared-item-entry').count()===20,'First batch presents all 20 questions, without a five-item cap');
+ check((await genericState()).batches[0].count===20,'Frozen first prompt contains exactly the requested 20 question packages');
+ check(!await page.locator('.manual-batch-shared-items-region').evaluate(n=>n.open),'Current batch question list is collapsed by default');
+ check(await page.locator('#manual-solution-batch-results').isVisible(),'Paste editor is present below the collapsed batch list');
+ await auditBatchLayout(page,'batches-collapsed');
+ await page.locator('.manual-batch-shared-items-region > summary').click();
+ check(await page.locator('[data-next-step="paste"]').isVisible(),'Copied batch clearly names paste as the next step');
+ const readable=await page.locator('.manual-batch-shared-item-row-generic').first().evaluate(n=>({id:parseFloat(getComputedStyle(n.querySelector('code')).fontSize),status:parseFloat(getComputedStyle(n.querySelector('.manual-batch-shared-item-status')).fontSize),title:parseFloat(getComputedStyle(n.querySelector('.manual-solution-question-title')).fontSize)}));
+ check(readable.id>=15&&readable.status>=14&&readable.title>=15,'Question IDs, statuses, and previews use readable app-sized text',readable);
+ const initialPair=await page.locator('.manual-batch-shared-navigation-region .batch-workspace-navigation-pair').evaluate(n=>[...n.querySelectorAll('button')].map(b=>({label:b.textContent.trim(),disabled:b.disabled})));
+ check(initialPair.map(b=>b.label).join(',')==='Previous,Next'&&initialPair.every(b=>b.disabled),'Previous/Next stay together and remain disabled until copied neighbors exist');
+ check(await page.locator('.batch-workspace-copy-next').isEnabled(),'Creating the next prompt is a separate Copy Next action');
+ await screenshot('batches-desktop');await auditBatchLayout(page,'batches');
+ await page.locator('[data-action="copy-next-manual-solution-batch"]').first().click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualSolutionBatchState().batches.length===2);
+ check(await page.locator('.manual-batch-shared-item-entry').count()===20,'Copy Next shows all 20 questions in the second batch');
+ const second=(await genericState()).selected;
+ await page.locator('.manual-batch-shared-navigation-region [data-action="select-manual-solution-batch"]').first().click();
+ check((await genericState()).selected===first,'Previous restores the first frozen batch');
+ await page.locator('.manual-batch-shared-navigation-region [data-action="select-manual-solution-batch"]').first().click();
+ check((await genericState()).selected===second,'Next reopens the second frozen batch');
+ await page.locator('[data-action="copy-next-manual-solution-batch"]').first().click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualSolutionBatchState().batches.length===3);
+ check((await genericState()).batches.map(b=>b.count).join(',')==='20,20,5','The last prompt contains only the five remaining questions');
+ const jump=page.locator('[data-batch-workspace-jump]');
+ check(await jump.isVisible()&&await jump.locator('option').count()===3,'Batch jump exposes all three frozen batches');
+ await jump.selectOption(first);
+ check((await genericState()).selected===first&&await page.locator('.manual-batch-shared-item-entry').count()===20,'Batch jump restores all contents of the chosen batch');
+ await page.locator('[data-action="copy-manual-solution-batch-card"]').first().click();
+ check((await genericState()).batches.length===3,'Re-copying a frozen prompt does not create another batch');
+ await openPaste();
+ await auditBatchLayout(page,'paste');
+ check(await page.locator('#manual-solution-import-batch-fingerprint').inputValue()===first,'Paste binds to the currently selected frozen batch');
+ await page.locator('#manual-solution-batch-results').fill('{not JSON');
+ await page.locator('[data-action="import-manual-solution-batch-results"]').click();
+ await page.locator('#manual-solution-batch-status').waitFor({state:'visible'});
+ check(await page.locator('#manual-solution-batch-status').isVisible(),'Malformed response produces usable inline feedback');
+ const imported=await importMetadata(18);
+ check(await page.locator('[data-next-step="review"]').isVisible(),'Pasted proposals change the next-step guidance to Review');
+ await page.locator('[data-next-step="review"] [data-action="review-all-manual-whole-selection"]').click();
+ const beforeReview=await genericState();
+ check(beforeReview.items.filter(i=>i.status==='proposal_pending').length===18,'Partial response stages all 18 valid proposals');
+ check(beforeReview.items.filter(i=>i.status==='missing_response').length===2,'The two missing response items are retained for retry');
+ check(await page.locator('.manual-whole-review-card').isVisible(),'Review displays one question at a time');
+ check(await page.locator('.manual-whole-review-comparison,.manual-whole-review-table').count()>0,'Real before/after metadata comparison remains available');
+ await page.locator('[data-manual-review-jump]').selectOption('0');
+ await page.locator('[data-action="resolve-manual-whole-review"][data-review-decision="accept"]').click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualSolutionBatchState().reviewItems[0]?.status==='accepted');
+ const saved=await page.evaluate(async()=>{const a=window.__workspaceQA,m=a.ensureManualSolutionBatchState();return {record:await a.dbGet('questions',m.reviewItems[0].questionId),index:m.reviewIndex};});
+ check(await page.locator('.modal-body').evaluate(n=>n.scrollTop)===0,'Accept and Next opens the next review question at its heading');
+ check(saved.index===1&&saved.record.topic===imported.firstProposed.topic&&saved.record.subtopic===imported.firstProposed.subtopic,'Accept saves authorized metadata and advances to the next question');
+ await page.locator('[data-action="navigate-manual-whole-review"][data-review-direction="-1"]').click();
+ check((await page.locator('[data-action="resolve-manual-whole-review"][data-review-decision="reject"]').innerText()).includes('Restore Original'),'An accepted question can be revisited and reversed');
+ await page.locator('[data-action="resolve-manual-whole-review"][data-review-decision="reject"]').click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualSolutionBatchState().reviewItems[0]?.status==='rejected');
+ const restored=await page.evaluate(async()=>{const a=window.__workspaceQA,m=a.ensureManualSolutionBatchState();return a.dbGet('questions',m.reviewItems[0].questionId);});
+ check(restored.topic===imported.firstOriginal.topic&&restored.subtopic===imported.firstOriginal.subtopic,'Reject restores both original metadata values in real storage');
+ await page.locator('[data-manual-review-jump]').selectOption('0');
+ await page.locator('[data-action="resolve-manual-whole-review"][data-review-decision="accept"]').click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualSolutionBatchState().reviewItems[0]?.status==='accepted');
+ await screenshot('review-desktop');await auditBatchLayout(page,'review-accepted');
+ const indexBeforeClose=(await genericState()).index;
+ await page.locator('.modal-header [data-action="close-modal"]').click();await page.locator(modalSelector).waitFor({state:'detached'});
+ await page.evaluate(()=>window.__workspaceQA.showBatchSolutions({fresh:false,tab:'manual'}));
+ check((await genericState()).selected===first&&(await genericState()).items[0].status==='accepted','Close and reopen preserve selected batch and saved review decision');
+ await stage('review');
+ check((await genericState()).index===indexBeforeClose,'Reopening review preserves question position');
+ await stage('finish');
+ await auditBatchLayout(page,'finish');
+ check(await page.locator('.manual-whole-review-retry-list').evaluate(n=>n.open),'Finish initially opens the question retry checklist');
+ check(await page.locator('[data-review-retry-question]').count()>=2&&await page.locator('[data-review-retry-question]:checked').count()===await page.locator('[data-review-retry-question]').count(),'All currently eligible retry questions start selected');
+ await page.locator('[data-action="select-manual-review-retries"][data-selection="none"]').click();
+ check(await page.locator('[data-review-retry-question]:checked').count()===0&&await page.locator('[data-action="retry-selected-manual-review"]').isDisabled(),'Clear All empties the retry set and disables copying');
+ await page.locator('[data-action="select-manual-review-retries"][data-selection="all"]').click();
+ check(await page.locator('[data-review-retry-question]:checked').count()===await page.locator('[data-review-retry-question]').count(),'Select All restores eligible retry choices');
+ await page.locator('[data-action="select-manual-review-retries"][data-selection="none"]').click();
+ await page.locator('[data-review-retry-question="WORKSPACE-Q19"]').check();await page.locator('[data-review-retry-question="WORKSPACE-Q20"]').check();
+ await page.locator('[data-action="retry-selected-manual-review"]').click();
+ await page.waitForFunction(()=>!!window.__workspaceQA.ensureManualSolutionBatchState().reviewRetry);
+ const retry=await genericState();
+ await auditBatchLayout(page,'retry-paste');
+ check(retry.retry.questionIds.join(',')==='WORKSPACE-Q19,WORKSPACE-Q20'&&retry.batches.at(-1).count===2,'Retry prompt freezes only the two explicitly selected questions');
+ check(retry.batches.length===4&&retry.items[0].status==='accepted','New retry preserves frozen history and earlier acceptance');
+ check(await page.locator('.manual-whole-review-retry').isVisible(),'Retry view exposes exact prompt and paste editor');
+ const retryFixture=await page.evaluate(()=>{
+  const a=window.__workspaceQA,m=a.ensureManualSolutionBatchState(),b=m.batches.find(b=>b.batchFingerprint===m.reviewRetry.batchFingerprint);
+  return {schemaVersion:'2.0',batchFingerprint:b.batchFingerprint,requestedOperations:b.requestedOperations,results:b.packages.map(pkg=>{const r=pkg.selectiveMetadataRequest,tax=r.modelProjection.taxonomy,topic=Object.keys(tax).find(t=>t!=='Mathematics and Statistics'&&tax[t]?.length)||Object.keys(tax)[0];return {questionId:pkg.questionId,questionRevision:pkg.questionRevision,packageFingerprint:pkg.packageFingerprint,outputs:{selectiveMetadata:{schemaVersion:'1.0',questionId:pkg.questionId,requestFingerprint:r.requestFingerprint,requestedGroups:r.requestedGroups,metadata:{topic,subtopic:tax[topic][0]}}}};})};
+ });
+ await page.locator('#manual-solution-batch-results').fill(JSON.stringify(retryFixture));
+ await page.locator('[data-action="import-manual-whole-review-retry"]').click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualSolutionBatchState().reviewItems.filter(i=>['WORKSPACE-Q19','WORKSPACE-Q20'].includes(i.questionId)&&i.status==='proposal_pending').length===2);
+ check((await genericState()).items[0].status==='accepted','Retry paste stages new proposals while retaining earlier decisions');
+ await stage('finish');await screenshot('finish-desktop');
+
+ // Layout checks cover every manual stage with real controls and data, not just
+ // screenshots. Horizontal containment and keyboard click targets are asserted.
+ for(const width of [1920,1440,1024,768,375,320]){
+  await page.setViewportSize({width,height:width<400?700:1000});
+  for(const view of ['setup','batches','review','finish']){
+   await stage(view);
+   const geometry=await page.locator(modalSelector).evaluate(n=>{const r=n.getBoundingClientRect(),body=n.querySelector('.modal-body'),tabs=[...n.querySelectorAll('[data-action="batch-workspace-stage"]')].map(b=>{const r=b.getBoundingClientRect();return {label:b.textContent.trim(),left:r.left,right:r.right,width:r.width};});return {left:r.left,right:r.right,width:innerWidth,overflow:n.scrollWidth-n.clientWidth,bodyOverflow:body.scrollWidth-body.clientWidth,tabs};});
+   layoutChecks.push({width,view,...geometry});
+   const contents=await page.locator(modalSelector).evaluate(n=>{
+    const nodes=[...n.querySelectorAll('.manual-batch-shared-item-row > *, .batch-workspace-aside button, .batch-workspace-next-step, .manual-whole-review-pane')].filter(e=>e.getClientRects().length&&e.getBoundingClientRect().width>0),clipped=nodes.filter(e=>{const a=e.getBoundingClientRect(),b=e.parentElement.getBoundingClientRect();return a.left<b.left-2||a.right>b.right+2||e.scrollWidth-e.clientWidth>3;}).map(e=>({class:e.className,text:e.textContent.slice(0,80)}));
+    const pairs=[...n.querySelectorAll('.batch-workspace-navigation-pair')].map(p=>{const [a,b]=[...p.querySelectorAll('button')].map(e=>e.getBoundingClientRect());return {sameLine:Math.abs(a.top-b.top)<2,gap:b.left-a.right};});return {clipped,pairs};
+   });
+   check(!contents.clipped.length&&contents.pairs.every(p=>p.sameLine&&p.gap>=0&&p.gap<=12),`${width}px ${view}: labels fit their areas and Previous/Next stay adjacent`,contents);
+   check(geometry.left>=-1&&geometry.right<=geometry.width+1&&geometry.overflow<=2&&geometry.bodyOverflow<=2&&geometry.tabs.every(t=>t.width>0&&t.left>=-1&&t.right<=geometry.width+1),`${width}px ${view}: dialog content and workflow tabs fit without horizontal clipping`,geometry);
+  }
+  if(width===375)await screenshot('finish-phone');
+ }
+ await page.setViewportSize({width:1440,height:1000});
+ await stage('batches');await page.locator(stageSelector('review')).focus();await page.keyboard.press('Enter');
+ check(await page.locator('.manual-whole-review-card').isVisible(),'Keyboard Enter can open the focused Review stage');
+ await stage('finish');
+ await page.locator('[data-action="finish-manual-whole-review"]').focus();await page.keyboard.press('Enter');
+ await auditBatchLayout(page,'finish-confirmation');
+ check(await page.locator('[data-action="confirm-finish-manual-whole-review"]').isVisible(),'Finishing an incomplete selection requires explicit confirmation');
+ const pendingSession=(await genericState()).session;
+ await page.locator('[data-action="continue-manual-whole-review"]').click();
+ check((await genericState()).session===pendingSession,'Continue Reviewing preserves the unfinished task');
+ await stage('finish');
+ const acceptedBefore=await page.evaluate(async()=>window.__workspaceQA.dbGet('questions','WORKSPACE-Q01'));
+ await page.locator('[data-action="finish-manual-whole-review"]').click();await page.locator('[data-action="confirm-finish-manual-whole-review"]').click();
+ await page.locator(modalSelector).waitFor({state:'detached'});
+ check(!(await genericState()).session&&!(await genericState()).batches.length,'Confirmed Finish closes the dialog and resets active review tracking');
+ const acceptedAfter=await page.evaluate(async()=>window.__workspaceQA.dbGet('questions','WORKSPACE-Q01'));
+ check(JSON.stringify(acceptedAfter)===JSON.stringify(acceptedBefore),'Finish preserves accepted question data');
+ await page.evaluate(()=>{const a=window.__workspaceQA;a.state.aiBatchToolsManualOperation='questionText';a.showBatchSolutions({fresh:false,tab:'manual'});});
+ await stage('setup');
+ await page.locator('#manual-question-text-batch-size').fill('20');await page.locator('#manual-question-text-batch-size').press('Tab');
+ await page.locator('[data-action="copy-manual-question-text-batch-prompt"]').click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualQuestionTextBatchState().batches.length===1);
+ await stage('batches');
+ await auditBatchLayout(page,'question-text-batches');
+ check(await page.locator('.manual-batch-shared-item-entry').count()===20,'Question Text uses the same workspace and displays all 20 batch items');
+ await page.locator('[data-action="copy-next-manual-question-text-batch"]').first().click();
+ await page.waitForFunction(()=>window.__workspaceQA.ensureManualQuestionTextBatchState().batches.length===2);
+ await page.locator('.manual-batch-shared-navigation-region [data-action="select-manual-question-text-batch"]').first().click();
+ check(await page.evaluate(()=>window.__workspaceQA.ensureManualQuestionTextBatchState().selectedBatchFingerprint===window.__workspaceQA.ensureManualQuestionTextBatchState().batches[0].batchFingerprint),'Question Text Previous restores its first batch');
+ await stage('finish');
+ await page.locator('[data-action="show-abandon-manual-question-text-batch"]').click();
+ await auditBatchLayout(page,'abandon-confirmation');
+ check(await page.locator('[data-action="confirm-abandon-manual-question-text-batch"]').isVisible(),'Abandon exposes a clear confirmation for the active task');
+ await page.locator('[data-action="confirm-abandon-manual-question-text-batch"]').click();
+ check(await page.evaluate(()=>!window.__workspaceQA.ensureManualQuestionTextBatchState().sessionID),'Confirmed Abandon resets the Question Text task');
+ await page.evaluate(()=>window.__workspaceQA.showBatchSolutions({fresh:false,tab:'api'}));
+ check(await page.locator('[data-action="start-batch-solutions"]').isDisabled(),'API mode still requires a selected operation after completing manual work');
+ await page.locator('#batch-selective-metadata').check();
+ check(await page.locator('[data-action="start-batch-solutions"]').isEnabled(),'API metadata controls retain their start eligibility');
+ await screenshot('api-desktop');
+ // Reproduce the reported one-question, size-50 Worked Solutions layout.
+ await page.evaluate(async()=>{const a=window.__workspaceQA,q={...structuredClone(a.state.questions[0]),id:'FE-QA-DIRTY-HARD-0113',question:'A 20 kg block starts from rest 1.5 m upslope from an unstretched spring. Determine the maximum compression of the spring, using conservation of energy.',solution:'',generationMetadata:{}};await a.dbPut('questions',q);a.state.questions=[q];a.state.bank.selection=new Set([q.id]);a.state.aiBatchToolsManualOperation='generateSolutions';a.showBatchSolutions({fresh:true});a.showBatchSolutions({tab:'manual'});});
+ await page.locator('#manual-solution-batch-size').fill('50');await page.locator('#manual-solution-batch-size').press('Tab');
+ await page.locator('label:has([data-manual-prompt-target][value="chatgpt"])').click();
+ check(await page.locator('[data-manual-prompt-target][value="chatgpt"]').isChecked(),'Clicking the ChatGPT target label selects its radio control');
+ await page.setViewportSize({width:375,height:800});
+ await page.locator('[data-action="copy-manual-solution-batch-prompt"]').click();
+ await page.locator('.manual-batch-shared-item-id').filter({hasText:'FE-QA-DIRTY-HARD-0113'}).waitFor({state:'attached'});await idle();
+ check(await page.locator('.modal-body').evaluate(n=>n.scrollTop)===0,'Copying a new task resets dialog scroll so stage and batch navigation remain visible');
+ await page.locator('.manual-batch-shared-items-region > summary').click();await idle();
+ check(await page.locator('.manual-batch-shared-item-entry').count()===1,'Reported single-question solution batch displays its actual one-item contents');
+ check((await page.locator('[data-next-step="paste"]').innerText()).includes('ChatGPT'),'Next-step guidance names the selected external AI');
+ check((await page.locator('.batch-workspace-scroll-hint').innerText()).includes('visible above'),'A short batch does not tell the user to scroll unnecessarily');
+ check((await page.locator('[data-batch-workspace-jump]').innerText()).includes('1 question')&&!(await page.locator('[data-batch-workspace-jump]').innerText()).includes('1 questions'),'Single-question batch labels use the singular');
+ for(const width of [1920,1440,1024,768,375,320]){
+  await page.setViewportSize({width,height:width<400?800:1100});
+  await idle();
+  const fit=await page.locator('.manual-batch-shared-item-row-generic').evaluate(n=>{const r=n.getBoundingClientRect(),parts=[...n.children].map(e=>({text:e.textContent,b:e.getBoundingClientRect().toJSON(),overflow:e.scrollWidth-e.clientWidth}));return {row:r.toJSON(),parts};});
+  check(fit.parts.every(e=>e.b.left>=fit.row.left-1&&e.b.right<=fit.row.right+1&&e.overflow<=2),`${width}px: reported long question ID and status fit their row`,fit);
+  if(width===1440)await screenshot('single-solution-desktop');if(width===375)await screenshot('single-solution-phone');
+ }
+ await page.setViewportSize({width:1440,height:1000});
+ check(providerRequests.length===0,'All copy, paste, review, retry, finish, and UI checks made zero AI provider calls');
+ check(errors.length===0,'No uncaught browser errors',errors);
+ check(digest(fs.readFileSync(filename,'utf8'))===sourceHash,'QA leaves application source unchanged');
+ finishBatchLayoutAudit();
+ fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({assertions:checks.length,checks,layoutChecks,errors,providerRequests,sourceHash},null,2));
+ console.log(`PASS: ${checks.length} batch workspace checks, ${layoutChecks.length} layout states, zero AI provider calls. Evidence: ${output}`);
+}catch(error){
+ await page?.screenshot({path:path.join(output,'failure.png'),animations:'disabled'}).catch(()=>{});
+ const dom=await page?.evaluate(()=>({viewport:{width:innerWidth,height:innerHeight},modal:document.querySelector('.modal-layer')?.innerText,buttons:[...document.querySelectorAll('.modal-layer button')].map(n=>({text:n.textContent.trim(),action:n.dataset.action,stage:n.dataset.stage,disabled:n.disabled})),state:window.__workspaceQA?.ensureManualSolutionBatchState()})).catch(()=>null);
+ fs.writeFileSync(path.join(output,'failure.json'),JSON.stringify({message:error.message,checks,layoutChecks,errors,providerRequests,dom},null,2));
+ throw error;
+}finally{await browser.close();}

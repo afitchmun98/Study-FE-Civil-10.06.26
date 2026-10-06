@@ -1,0 +1,106 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import {createRequire} from 'node:module';
+import {fileURLToPath, pathToFileURL} from 'node:url';
+const require=createRequire(import.meta.url), {chromium}=require('playwright');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const output=process.env.BANK_QA_OUTPUT||path.join(os.tmpdir(),'fe-bank-workspace-qa');
+fs.mkdirSync(output,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:process.env.PLAYWRIGHT_CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+const checks=[], errors=[];
+const check=(ok,name)=>{checks.push({name,passed:Boolean(ok)});if(!ok)throw new Error(name);};
+try {
+ const page=await browser.newPage({viewport:{width:1920,height:1000},colorScheme:'dark',reducedMotion:'reduce',hasTouch:true});
+ page.on('pageerror',error=>errors.push(error.message));
+ await page.route('http://fe-bank-workspace.local/',route=>route.fulfill({contentType:'text/html',body:fs.readFileSync(path.join(root,'index.html'),'utf8')}));
+ const nav=async section=>{if(await page.locator('.mobile-bar').isVisible())await page.locator('.mobile-bar [data-action="toggle-mobile-sidebar"]').click();await page.locator(`.sidebar-nav [data-section="${section}"]`).click();await page.waitForTimeout(300);};
+ const press=async key=>{await page.keyboard.press(key);await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));};
+ const geometry=async()=>{await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));return page.locator('.bank-layout').evaluate(n=>{
+  const r=n.getBoundingClientRect(),list=n.querySelector('.bank-list').getBoundingClientRect(),detail=n.querySelector('.bank-detail').getBoundingClientRect();
+  return {left:r.left,width:r.width,list:list.width,detail:detail.width,ratio:list.width/(r.width-10),overflow:document.querySelector('.content').scrollWidth-document.querySelector('.content').clientWidth};
+ });};
+ const drag=async x=>{const box=await page.locator('.bank-pane-divider').boundingBox();await page.mouse.move(box.x+box.width/2,box.y+Math.min(100,box.height/2));await page.mouse.down();await page.mouse.move(x,box.y+Math.min(100,box.height/2),{steps:8});await page.mouse.up();};
+ await page.goto('http://fe-bank-workspace.local/');await nav('bank');
+ let size=await geometry();check(Math.abs(size.ratio-.54)<.002,'default split allocates 54% to the list');
+ const toolbarHeights=await page.locator('.toolbar.bank-command-toolbar').evaluate(n=>({height:n.getBoundingClientRect().height,fields:[...n.querySelector('.bank-command-surface').children].map(x=>({class:x.className,height:x.getBoundingClientRect().height,children:[...x.children].map(c=>({tag:c.tagName,height:c.getBoundingClientRect().height}))}))}));check(toolbarHeights.height<=52,`toolbar stays within one 52px row: ${JSON.stringify(toolbarHeights)}`);
+ await drag(size.left+(size.width-10)*.36+5);size=await geometry();check(Math.abs(size.ratio-.36)<.003,'drag widens the question detail');
+ check(Math.abs(Number(await page.evaluate(()=>localStorage.getItem('fepl-bank-pane-width-v1')))-.36)<.003,'drag saves the split preference');
+ await page.locator('#bank-topic').selectOption('Statics');const nativeSize=await geometry();check(Math.abs(nativeSize.ratio-.36)<.003,`native filter rerender retains split: ${JSON.stringify(nativeSize)}`);
+ check(await page.locator('.bank-topic-field').evaluate(n=>n.classList.contains('has-active-filter')),'active primary filter has consistent accent');
+ await page.locator('.bank-toolbar-clear-btn').click();
+ const horizontalScroll=await page.locator('.bank-list').evaluate(n=>{n.scrollLeft=100;return n.scrollLeft;});
+ await page.locator('[data-shared-filter-dropdown="bank:originalSources"] .shared-filter-trigger').click();
+ await page.locator('[data-shared-filter-dropdown="bank:originalSources"] input[type="checkbox"]').first().check();
+ check(Math.abs((await geometry()).ratio-.36)<.003,'in-place multi-select result refresh retains split');
+ check(Math.abs(await page.locator('.bank-list').evaluate(n=>n.scrollLeft)-horizontalScroll)<=1,'multi-select refresh retains horizontal table scroll');
+ check(await page.locator('.bank-original-source-field').evaluate(n=>n.classList.contains('has-active-filter')),'multi-select updates active styling without closing');
+ check(await page.locator('[data-shared-filter-dropdown="bank:originalSources"].open').count()===1,'multi-select stays open during results refresh');
+ await press('Escape');await page.locator('.bank-toolbar-clear-btn').click();
+ await nav('practice');await nav('bank');check(Math.abs((await geometry()).ratio-.36)<.003,'navigation retains split');
+ await page.reload();await nav('bank');check(Math.abs((await geometry()).ratio-.36)<.003,'reload restores split');
+ await page.locator('.bank-pane-divider').focus();const before=(await geometry()).list;
+ await press('ArrowRight');check(Math.abs((await geometry()).list-before-16)<1,'keyboard arrow resizes by 16px');
+ await press('Shift+ArrowLeft');check(Math.abs((await geometry()).list-before+32)<1,'Shift arrow makes a larger adjustment');
+ await press('Home');check(Math.abs((await geometry()).list-280)<1,'Home enforces minimum list width');
+ check(Number(await page.locator('.bank-pane-divider').getAttribute('aria-valuenow'))>=Number(await page.locator('.bank-pane-divider').getAttribute('aria-valuemin')),'separator announces a value within its range');
+ await press('End');check(Math.abs((await geometry()).detail-320)<1,'End enforces minimum detail width');
+ check(Number(await page.locator('.bank-pane-divider').getAttribute('aria-valuenow'))<=Number(await page.locator('.bank-pane-divider').getAttribute('aria-valuemax')),'maximum divider value is within its announced range');
+ await press('Enter');check(Math.abs((await geometry()).ratio-.54)<.002,'Enter resets split');
+ size=await geometry();await drag(size.left+size.width-1);check((await geometry()).detail>=319,'drag cannot collapse the detail');
+ await drag(size.left-200);check((await geometry()).list>=279,'drag outside pane cannot collapse the list');
+ await page.locator('.bank-pane-divider').dblclick();check(Math.abs((await geometry()).ratio-.54)<.002,'double-click resets split');
+ const dividerBox=await page.locator('.bank-pane-divider').boundingBox();
+ await page.mouse.move(dividerBox.x+5,dividerBox.y+100);await page.mouse.down();await page.mouse.move(dividerBox.x+150,dividerBox.y+100);await press('Escape');await page.mouse.up();
+ check(Math.abs((await geometry()).ratio-.54)<.002,'Escape cancels a drag');
+ check(await page.locator('html.bank-pane-resizing').count()===0,'cancel releases the resize cursor');
+ const cdp=await page.context().newCDPSession(page), touchBox=await page.locator('.bank-pane-divider').boundingBox();
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:touchBox.x+5,y:touchBox.y+100}]});
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:touchBox.x-100,y:touchBox.y+100}]});
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ check((await geometry()).list<touchBox.x-(await geometry()).left-90,'touch drag moves divider');
+ await cdp.detach();
+ await page.locator('.bank-tools-menu > summary').click();await page.locator('[data-action="reset-bank-pane-width"]').click();
+ check(Math.abs((await geometry()).ratio-.54)<.002,'Bank menu offers a discoverable reset');
+ for(const width of [1024,1280,1440,1920,2560]){
+  await page.setViewportSize({width,height:900});await page.waitForTimeout(400);
+  const g=await geometry();check(g.overflow<2&&g.list>=279&&g.detail>=319,`${width}px desktop panes stay within bounds`);
+  const aligned=await page.locator('.bank-command-surface').evaluate(n=>{
+   const nodes=[...n.querySelectorAll(':scope > .bank-command-field:not(.bank-more-filters-field) select,:scope > .bank-command-field:not(.bank-more-filters-field) .shared-filter-trigger,.bank-filter-menu > details > summary,.bank-toolbar-reset-btn,.bank-toolbar-menu > summary,.bank-new-question')].filter(n=>n.getClientRects().length);
+   const boxes=nodes.map(n=>n.getBoundingClientRect());return Math.max(...boxes.map(b=>b.top))-Math.min(...boxes.map(b=>b.top))<=1&&boxes.every(b=>b.height===34);
+  });check(aligned,`${width}px toolbar controls align`);
+  if([1024,1440,1920].includes(width))await page.screenshot({path:path.join(output,`${width}-bank-dark.png`),animations:'disabled'});
+ }
+ await page.setViewportSize({width:1440,height:900});await page.waitForTimeout(300);size=await geometry();await drag(size.left+(size.width-10)*.72+5);
+ const preferred=Number(await page.evaluate(()=>localStorage.getItem('fepl-bank-pane-width-v1')));
+ await page.setViewportSize({width:1024,height:900});await page.waitForTimeout(400);check((await geometry()).detail>=319,'smaller desktop clamps a wide list');
+ check(Number(await page.evaluate(()=>localStorage.getItem('fepl-bank-pane-width-v1')))===preferred,'viewport clamp does not overwrite preference');
+ await page.setViewportSize({width:1920,height:900});await page.waitForTimeout(400);check(Math.abs((await geometry()).ratio-.72)<.003,'larger desktop restores preferred ratio');
+ for(const width of [320,375,768,980]){
+  await page.setViewportSize({width,height:900});await page.waitForTimeout(400);
+  check(!await page.locator('.bank-pane-divider').isVisible(),`${width}px uses stacked panes`);
+  check(await page.locator('.content').evaluate(n=>n.scrollWidth-n.clientWidth<2),`${width}px confines horizontal scrolling to question list and toolbar`);
+  if(width===375)await page.screenshot({path:path.join(output,'375-bank-dark.png'),animations:'disabled'});
+ }
+ await page.setViewportSize({width:1440,height:900});await nav('settings');await page.selectOption('[data-setting="appearance"]','light');await nav('bank');
+ await page.screenshot({path:path.join(output,'1440-bank-light.png'),animations:'disabled'});
+ await page.locator('.bank-pane-divider').focus();await press('Home');
+ check(await page.locator('.bank-list').evaluate(n=>n.scrollWidth>n.clientWidth),'narrow list retains a horizontal scrollbar');
+ await press('Enter');
+ await page.evaluate(()=>{localStorage.setItem('fepl-bank-pane-width-v1','bad value');});await page.reload();await nav('bank');
+ check(Math.abs((await geometry()).ratio-.54)<.002,'invalid stored width falls back to default');
+ await page.evaluate(()=>{const original=Storage.prototype.setItem;Storage.prototype.setItem=function(key,value){if(key==='fepl-bank-pane-width-v1')throw new Error('storage disabled');return original.call(this,key,value);};});
+ await page.locator('.bank-pane-divider').focus();const fallbackBefore=(await geometry()).list;await press('ArrowRight');
+ check((await geometry()).list>fallbackBefore,'resize works with unavailable storage');
+ const localPage=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
+ localPage.on('pageerror',error=>errors.push(error.message));
+ await localPage.goto(pathToFileURL(path.join(root,'index.html')).href);await localPage.locator('.sidebar-nav [data-section="bank"]').click();await localPage.waitForTimeout(300);
+ await localPage.locator('.bank-pane-divider').focus();await localPage.keyboard.press('ArrowLeft');
+ const fileValue=await localPage.locator('.bank-pane-divider').getAttribute('aria-valuenow');await localPage.reload();await localPage.locator('.sidebar-nav [data-section="bank"]').click();await localPage.waitForTimeout(300);
+ check(await localPage.locator('.bank-pane-divider').getAttribute('aria-valuenow')===fileValue,'standalone file restores its split after reload');
+ check(errors.length===0,`no browser exceptions: ${errors.join('; ')}`);
+ console.log(`PASS: ${checks.length} Question Bank workspace checks; screenshots: ${output}`);
+} finally {
+ fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({checks,errors},null,2));
+ await browser.close();
+}

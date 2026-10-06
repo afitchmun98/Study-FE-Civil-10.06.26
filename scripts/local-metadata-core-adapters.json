@@ -1,0 +1,27 @@
+[
+  {
+    "before": "body: JSON.stringify(body), timeoutSeconds: options.timeoutSeconds || 0",
+    "after": "body: JSON.stringify(body), localTrace: options.localTrace, timeoutSeconds: options.timeoutSeconds || 0",
+    "count": 1
+  },
+  {
+    "before": "body: JSON.stringify(compatibleBody), timeoutSeconds: options.timeoutSeconds || 0",
+    "after": "body: JSON.stringify(compatibleBody), localTrace: options.localTrace, timeoutSeconds: options.timeoutSeconds || 0",
+    "count": 1
+  },
+  {
+    "before": "    if (data != null) {\n      const decoded = decodeLocalAIResponsePayload(data);",
+    "after": "    if (data != null) {\n      localAITracePayload(response,data);\n      const decoded = decodeLocalAIResponsePayload(data);",
+    "count": 1
+  },
+  {
+    "before": "const response = await callAI(\"Reply with exactly: FE Civil Practice Lab connection successful.\", { temperature: 0, maxTokens: 40 });",
+    "after": "const response = await localMetadataConnectionTest();",
+    "count": 1
+  },
+  {
+    "before": "For reasoning models such as Gemma 4, first raise the Local output token budget while leaving enough loaded context for the prompt. Final-answer mode is an optional fallback when you want to prioritize JSON over reasoning.",
+    "after": "${diagnosis.metadataProfile ? \"Metadata uses a separate, small output allowance and requests no reasoning. Check the per-call diagnostics and the model\u2019s supported reasoning control; raising the general Local budget will not change this request.\" : \"For reasoning models such as Gemma 4, first raise the Local output token budget while leaving enough loaded context for the prompt. Final-answer mode is an optional fallback when you want to prioritize JSON over reasoning.\"}",
+    "count": 1
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "name": "Updated FE-Study-App-2",
+  "description": "FE Civil Practice Lab with clickable sidebar synced profile, exam simulator, analytics, and worksheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

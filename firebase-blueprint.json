@@ -1,0 +1,26 @@
+{
+  "entities": {
+    "ProgressSummary": {
+      "path": "users/{userId}/summary/progress",
+      "description": "Lightweight aggregate topic progress, total stats, and list of flagged question IDs. Full questions and worksheets are intentionally excluded from Firestore to preserve free plan limits.",
+      "fields": {
+        "schemaVersion": { "type": "string", "description": "Schema version" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" },
+        "totalQuestions": { "type": "number", "description": "Total question count" },
+        "totalAnswered": { "type": "number", "description": "Total answered count" },
+        "totalCorrect": { "type": "number", "description": "Total correct count" },
+        "flaggedQuestionIds": { "type": "array", "description": "Array of flagged question IDs" },
+        "topicProgress": { "type": "map", "description": "Aggregate counts per topic (total, answered, correct)" }
+      }
+    },
+    "StudyPreferences": {
+      "path": "users/{userId}/preferences/study",
+      "description": "User study preferences and settings",
+      "fields": {
+        "schemaVersion": { "type": "string", "description": "Schema version" },
+        "values": { "type": "map", "description": "Settings key-value pairs" },
+        "fieldUpdatedAt": { "type": "map", "description": "Per-field ISO update timestamps" }
+      }
+    }
+  }
+}

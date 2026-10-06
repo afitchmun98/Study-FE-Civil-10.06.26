@@ -1,0 +1,90 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import {createRequire} from 'node:module';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+
+const require=createRequire(import.meta.url),{chromium}=require('playwright');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const output=process.env.SIDEBAR_QA_OUTPUT||path.join(os.tmpdir(),'fe-sidebar-tooltips-qa');fs.mkdirSync(output,{recursive:true});
+const source=fs.readFileSync(path.join(root,'index.html'),'utf8'),anchor='  state.activityRecords = function() {';
+const html=source.replace(anchor,`  setTimeout(()=>window.__sidebarQA={state,renderApp,filteredQuestions},0);\n${anchor}`);
+if(source===html)throw new Error('Missing isolated QA hook');
+const browser=await chromium.launch({headless:true,executablePath:process.env.PLAYWRIGHT_CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+const checks=[],errors=[],providerRequests=[];
+const check=(ok,message)=>{checks.push({passed:!!ok,message});if(!ok)throw new Error(message);};
+let page;
+try {
+  page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce',colorScheme:'dark'});page.setDefaultTimeout(6000);
+  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/api\.openai\.com|generativelanguage\.googleapis\.com/.test(r.url()))providerRequests.push(r.url());});
+  await page.route('http://fe-sidebar.local/',r=>r.fulfill({contentType:'text/html',body:html}));
+  await page.goto('http://fe-sidebar.local/');await page.waitForFunction(()=>window.__sidebarQA?.state.questions.length);
+  const tooltip=page.locator('#sidebar-button-tooltip'),rail='#app > .sidebar';
+  const leave=async()=>{await page.mouse.move(500,880);await page.locator('.page h1').first().click();};
+  const hoverCheck=async(selector,label)=>{
+    const button=page.locator(selector);await page.mouse.move(500,200);await button.hover();await tooltip.waitFor();
+    check(await tooltip.innerText()===label,`${label}: hover shows the correct name`);
+    check(await tooltip.count()===1&&await button.getAttribute('title')===null,`${label}: one tooltip without duplicate native title`);
+    check((await button.getAttribute('aria-describedby')||'').split(/\s+/).includes('sidebar-button-tooltip'),`${label}: tooltip is associated with its control`);
+    const bounds=await tooltip.evaluate(n=>{const r=n.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,w:innerWidth,h:innerHeight,pointer:getComputedStyle(n).pointerEvents};});
+    check(bounds.left>=0&&bounds.right<=bounds.w&&bounds.top>=0&&bounds.bottom<=bounds.h&&bounds.pointer==='none',`${label}: visible within the window and does not block clicks`);
+    await page.mouse.move(500,850);check(await tooltip.count()===0,`${label}: leaving hides the label`);
+    check(!!await button.getAttribute('title')&&!await button.getAttribute('aria-describedby'),`${label}: dismissal restores the original native title`);
+  };
+  await page.locator(`${rail} .nav-button[data-section="home"]`).hover();check(await tooltip.count()===0,'Expanded sidebar retains normal text without an extra tooltip');
+  await page.locator('.sidebar-collapse-toggle').click();await leave();check(await page.locator('#app').evaluate(n=>n.classList.contains('sidebar-collapsed')),'Collapse keeps the navigation rail visible');
+  const controls=await page.locator(`${rail} .nav-button`).evaluateAll(nodes=>nodes.map(n=>({selector:`#app > .sidebar .nav-button[data-section="${n.dataset.section}"]`,label:n.getAttribute('aria-label')})));
+  controls.unshift({selector:`${rail} .sidebar-collapse-toggle`,label:'Expand sidebar'},{selector:`${rail} .ai-bookmark[data-target="gemini"]`,label:'Gemini'},{selector:`${rail} .ai-bookmark[data-target="chatgpt"]`,label:'ChatGPT'});
+  controls.push({selector:`${rail} .sidebar-profile-btn`,label:'Profile & sync'});
+  check(controls.length===13,'All nine navigation buttons, both AI links, menu, and profile have labels');
+  for(const width of [821,1024,1440,1920]) {
+    await page.setViewportSize({width,height:900});await page.waitForTimeout(100);
+    for(const control of controls)await hoverCheck(control.selector,control.label);
+  }
+  const bank=`${rail} .nav-button[data-section="bank"]`;
+  await page.locator(bank).evaluate(n=>n.setAttribute('aria-describedby','existing-description'));
+  await page.locator(bank).hover();await tooltip.waitFor();
+  check(await page.locator(bank).getAttribute('aria-describedby')==='existing-description sidebar-button-tooltip','Opening a label preserves existing accessible descriptions');
+  await page.mouse.move(500,850);check(await page.locator(bank).getAttribute('aria-describedby')==='existing-description','Closing a label removes only its own accessible description');
+  await page.locator(bank).evaluate(n=>n.removeAttribute('aria-describedby'));
+  await page.locator(bank).focus();await tooltip.waitFor();check(await tooltip.innerText()==='Question Bank','Keyboard focus shows a navigation label');
+  await page.keyboard.press('Escape');check(await tooltip.count()===0&&await page.locator(bank).evaluate(n=>n===document.activeElement),'Escape dismisses the label and retains keyboard focus');
+  await page.keyboard.press('Tab');await tooltip.waitFor();check(await tooltip.innerText()==='Worksheets','Tab shows the next button name');
+  await page.keyboard.press('Shift+Tab');await tooltip.waitFor();check(await tooltip.innerText()==='Question Bank','Shift+Tab shows the previous button name');
+  await page.keyboard.press('Enter');check(await tooltip.count()===0&&await page.locator('#bank-search').isVisible(),'Keyboard navigation changes pages and removes the old label');
+  await page.locator('#bank-topic').selectOption('Statics');await page.locator('.bank-list tbody input[type="checkbox"]').first().check();
+  const snapshot=()=>page.evaluate(()=>{const a=window.__sidebarQA;return JSON.stringify({topic:a.state.bank.topic,selected:[...a.state.bank.selection],ids:a.filteredQuestions().map(q=>q.id)});});
+  const original=await snapshot();
+  await page.locator('.sidebar-collapse-toggle').click();await page.waitForTimeout(240);check(await snapshot()===original,'Expanding preserves filters, selected questions, and matching results');
+  await page.locator(bank).hover();check(await tooltip.count()===0,'Expanded Question Bank has no icon tooltip');
+  await page.locator('.sidebar-collapse-toggle').click();await page.waitForTimeout(240);check(await snapshot()===original,'Collapsing preserves filters, selected questions, and matching results');
+  await page.locator(bank).hover();await tooltip.waitFor();const oldButton=await page.locator(bank).elementHandle();await page.evaluate(()=>window.__sidebarQA.renderApp());
+  check(await oldButton.evaluate(n=>!n.isConnected&&!n.hasAttribute('aria-describedby')&&n.title==='Question Bank'),'Page redraw cleans up labels attached to replaced buttons');
+  check(await tooltip.count()===0||await page.locator(bank).getAttribute('aria-describedby')==='sidebar-button-tooltip','Any label reopened under the pointer belongs to the new button');
+  await page.mouse.move(500,850);
+  await page.locator(bank).hover();await tooltip.waitFor();await page.setViewportSize({width:1024,height:900});await tooltip.waitFor({state:'detached'});check(await tooltip.count()===0,'Window resizing removes stale tooltip placement');
+  await page.mouse.move(500,850);await page.locator(bank).hover();await tooltip.waitFor();await page.evaluate(()=>window.dispatchEvent(new Event('blur')));check(await tooltip.count()===0,'Leaving the browser dismisses the label');
+  // The floating label lives outside the scrollable nav, so it is never clipped.
+  await page.setViewportSize({width:1024,height:420});await page.locator(`${rail} .sidebar-nav`).evaluate(n=>n.scrollTop=0);await page.mouse.move(500,200);
+  await hoverCheck(`${rail} .nav-button[data-section="home"]`,'Home');
+  await page.locator(`${rail} .nav-button[data-section="home"]`).hover();await tooltip.waitFor();await page.locator(`${rail} .sidebar-nav`).evaluate(n=>n.scrollTop=n.scrollHeight);await page.waitForTimeout(100);check(await tooltip.count()===0,'Scrolling the short sidebar dismisses a label tied to a moved button');
+  await hoverCheck(`${rail} .nav-button[data-section="settings"]`,'Settings');await hoverCheck(`${rail} .sidebar-profile-btn`,'Profile & sync');
+  await page.setViewportSize({width:1440,height:900});await page.mouse.move(500,850);await page.locator(`${rail} .nav-button[data-section="bank"]`).hover();await tooltip.waitFor();await page.screenshot({path:path.join(output,'dark-sidebar-label.png'),animations:'disabled'});
+  await page.evaluate(()=>document.documentElement.dataset.theme='light');await page.mouse.move(500,850);await page.locator(`${rail} .ai-bookmark[data-target="chatgpt"]`).hover();await tooltip.waitFor();await page.screenshot({path:path.join(output,'light-sidebar-label.png'),animations:'disabled'});
+  check(await tooltip.evaluate(n=>getComputedStyle(n).color!==getComputedStyle(n).backgroundColor),'Light theme keeps readable text and background colors');
+  const profile=`${rail} .sidebar-profile-btn`;await page.locator(profile).focus();await page.keyboard.press('Enter');check(await tooltip.count()===0&&await page.locator('.modal-layer').isVisible(),'Profile still opens its dialog and dismisses the label');
+  await page.keyboard.press('Escape');await page.waitForTimeout(240);
+  await page.evaluate(()=>{window.__openedURLs=[];window.open=(url,...args)=>{window.__openedURLs.push({url,args});return null;};});
+  await page.locator(`${rail} .ai-bookmark[data-target="chatgpt"]`).click();await page.locator(`${rail} .ai-bookmark[data-target="gemini"]`).click();
+  check(await page.evaluate(()=>window.__openedURLs.length===2&&window.__openedURLs[0].url==='https://chatgpt.com/'&&window.__openedURLs[1].url==='https://gemini.google.com/app'&&window.__openedURLs.every(x=>x.args.includes('noopener'))),'Both AI links keep their destinations and separate-tab behavior');
+  check(await tooltip.count()===0,'Clicking an AI link does not leave a label open');
+  await page.setViewportSize({width:375,height:812});await page.locator('.mobile-bar [data-action="toggle-mobile-sidebar"]').click();await page.locator(bank).hover();check(await tooltip.count()===0,'Mobile drawer does not receive collapsed desktop labels');
+  await page.locator(bank).click();check(!await page.locator('#app').evaluate(n=>n.classList.contains('sidebar-open')),'Mobile navigation still closes the drawer');
+  await page.setViewportSize({width:1440,height:900});await page.reload();check(await page.locator('#app').evaluate(n=>n.classList.contains('sidebar-collapsed')),'Collapsed preference survives reload');
+  await page.locator(bank).hover();await tooltip.waitFor();check(await tooltip.innerText()==='Question Bank','Labels still work after reload');
+  const file=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});file.on('pageerror',e=>errors.push(e.message));await file.goto(pathToFileURL(path.join(root,'index.html')).href);await file.locator('.sidebar-nav').waitFor();await file.locator('.sidebar-collapse-toggle').click();await file.locator('.sidebar-nav [data-section="bank"]').hover();await file.locator('#sidebar-button-tooltip').waitFor();check(await file.locator('#sidebar-button-tooltip').innerText()==='Question Bank','Standalone HTML has functioning labels');await file.close();
+  check(!errors.length,`Zero browser exceptions (${errors.join('; ')})`);check(!providerRequests.length,'Zero AI provider requests');
+  fs.writeFileSync(path.join(output,'results.json'),JSON.stringify({assertions:checks.length,checks,errors,providerRequests},null,2));console.log(`PASS: ${checks.length} sidebar checks. Evidence: ${output}`);
+} catch(error) {
+  await page?.screenshot({path:path.join(output,'failure.png')});fs.writeFileSync(path.join(output,'failure.json'),JSON.stringify({message:error.message,checks,errors},null,2));throw error;
+} finally {await browser.close();}
